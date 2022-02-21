@@ -1,0 +1,123 @@
+@media (min-width: 767px) {
+
+  .navbar-header{
+    float: none;
+  }
+
+  .carousel-caption {
+    background: rgba(0, 0, 0, 0.47);
+    padding: 0 15px 30px 14px;
+    font-size: 14px;
+  }
+
+  .carousel-caption h3{
+    color: #fff;
+  }
+
+  .menu-base-theme a:hover, 
+  .menu-base-theme a:focus, 
+  .menu-base-theme a:active, 
+  .menu-base-theme a.highlighted{
+    color: #FFF;
+    text-decoration: none;
+    background: url(../images/li-hover.png) center;
+  }
+
+  .region-primary-menu{
+    background: #fff;
+    border-radius: 3px;
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .region-primary-menu,
+  .menu-base-theme li a{
+    background: #181F25;
+  }
+
+  .slideshow{
+    display: block;
+  }
+
+  .main-menuwrap nav {
+    background: #272727; 
+  }
+
+  .menu-base-theme a{
+    border: 0;
+  }
+
+  .menu-base-theme > li{
+    border: 0;
+    background: url(../images/nav-border.png) repeat-y right;
+    padding: 0 2px 0 0;
+  }
+
+  .menu-base-theme a span.sub-arrow {
+    padding: 0;
+    top: 20px;
+    margin-top: 0;
+    bottom: 2px;
+    right: 8px;
+    margin-left: -5px;
+    left: auto;
+    width: 0;
+    height: 0;
+    border-width: 4px;
+    border-style: solid dashed dashed dashed;
+    border-color: #999 rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
+    background: transparent;
+  }
+
+  .menu-base-theme ul {
+    border: 1px solid #a8a8a8;
+    padding: 0;
+    background-color: #fff;
+    background: rgba(255, 255, 255, 0.74);
+  }
+
+  .menu-base-theme ul.has-submenu li {
+    border-bottom: 1px solid #fff;
+  }
+
+  .welcome-banner-text h2{
+    font-size: 50px;
+  }
+
+  .welcome-banner-text{
+    font-size: 14px;
+  }
+
+  .bottom-widgets{
+    text-align: left;
+    padding: 50px 0;
+  }
+
+  .footerwidget{
+    padding: 20px 0;
+  }
+
+  .credit-link{
+    text-align: right;
+  }
+
+  .social-media{
+    float: right;
+  }
+
+  .social-media a{
+    margin: 0 0 0 10px;
+  }
+
+  /*comment*/
+
+  .comment-wrap .author-details{ width: 10%; }
+
+  .comment-wrap .author-comments{ width: 90%;}
+}
+
+@media (max-width: 766px) {
+  .region-primary-menu {
+    display:none;
+  }
+}
