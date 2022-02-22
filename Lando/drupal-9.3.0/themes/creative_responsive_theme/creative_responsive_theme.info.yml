@@ -1,0 +1,36 @@
+name: Creative Responsive Theme
+type: theme
+description: 'Zymphonies Creative Responsive Theme. Developed & Designed by <a href=http://www.zymphonies.com>Zymphonies</a><br/>Contact us for Drupal Design & Development <a href=mailto:info@zymphonies.com>info@zymphonies.com</a>'
+package: core
+base theme: false
+core: 8.x
+core_version_requirement: ^8 || ^9
+
+#Libraries
+libraries:
+  - creative_responsive_theme/bootstrap
+  - creative_responsive_theme/global-components
+
+#Regions
+regions:
+  header: 'Header'
+  primary_menu: 'Primary Menu'
+  slideshow: 'Slideshow'  
+  topwidget_first: 'Top First Widget'
+  topwidget_second: 'Top Second Widget'
+  topwidget_third: 'Top Third Widget' 
+  highlighted: 'Highlighted' 
+  page_title: 'Page Title'
+  breadcrumb: 'Breadcrumb'
+  content: 'Content'
+  sidebar_first: 'Left Sidebar'
+  sidebar_second: 'Right Sidebar' 
+  footer_first: 'Footer First Widget'
+  footer_second: 'Footer Second Widget'
+  footer_third: 'Footer Third Widget'
+  footer_menu: 'Footer Menu'
+  auto_hidden_block: 'Auto hidden blocks'
+# Information added by Drupal.org packaging script on 2020-11-23
+version: '2.0.2'
+project: 'creative_responsive_theme'
+datestamp: 1606150886

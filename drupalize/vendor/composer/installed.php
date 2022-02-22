@@ -1,11 +1,11 @@
 <?php return array(
     'root' => array(
-        'pretty_version' => '1.0.0+no-version-set',
-        'version' => '1.0.0.0',
+        'pretty_version' => 'dev-master',
+        'version' => 'dev-master',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => NULL,
+        'reference' => '8d08166785fd7b817b671599139c7a05fe4b1792',
         'name' => 'drupal/recommended-project',
         'dev' => true,
     ),
@@ -26,7 +26,7 @@
             'install_path' => __DIR__ . '/../chi-teck/drupal-code-generator',
             'aliases' => array(),
             'reference' => 'e7261a46a839a3433e4bbe24eeeb21ed8805a7d3',
-            'dev_requirement' => false,
+            'dev_requirement' => true,
         ),
         'composer/installers' => array(
             'pretty_version' => 'v1.12.0',
@@ -53,7 +53,7 @@
             'install_path' => __DIR__ . '/../consolidation/annotated-command',
             'aliases' => array(),
             'reference' => '701a7abe8505abe89520837be798e15a3953a367',
-            'dev_requirement' => false,
+            'dev_requirement' => true,
         ),
         'consolidation/config' => array(
             'pretty_version' => '1.2.1',
@@ -62,7 +62,7 @@
             'install_path' => __DIR__ . '/../consolidation/config',
             'aliases' => array(),
             'reference' => 'cac1279bae7efb5c7fb2ca4c3ba4b8eb741a96c1',
-            'dev_requirement' => false,
+            'dev_requirement' => true,
         ),
         'consolidation/filter-via-dot-access-data' => array(
             'pretty_version' => '1.0.0',
@@ -71,7 +71,7 @@
             'install_path' => __DIR__ . '/../consolidation/filter-via-dot-access-data',
             'aliases' => array(),
             'reference' => 'a53e96c6b9f7f042f5e085bf911f3493cea823c6',
-            'dev_requirement' => false,
+            'dev_requirement' => true,
         ),
         'consolidation/log' => array(
             'pretty_version' => '2.0.4',
@@ -80,7 +80,7 @@
             'install_path' => __DIR__ . '/../consolidation/log',
             'aliases' => array(),
             'reference' => 'fc9ec5476ba13a31778695bd2d4f2fa0b0684356',
-            'dev_requirement' => false,
+            'dev_requirement' => true,
         ),
         'consolidation/output-formatters' => array(
             'pretty_version' => '4.2.1',
@@ -89,7 +89,7 @@
             'install_path' => __DIR__ . '/../consolidation/output-formatters',
             'aliases' => array(),
             'reference' => '4413d7c732afb5d7bdac565c41aa9c8c49c48888',
-            'dev_requirement' => false,
+            'dev_requirement' => true,
         ),
         'consolidation/robo' => array(
             'pretty_version' => '3.0.7',
@@ -98,7 +98,7 @@
             'install_path' => __DIR__ . '/../consolidation/robo',
             'aliases' => array(),
             'reference' => '57012db2a93c904ed0a7b9d8676c0325c0366bc8',
-            'dev_requirement' => false,
+            'dev_requirement' => true,
         ),
         'consolidation/self-update' => array(
             'pretty_version' => '2.0.3',
@@ -107,7 +107,7 @@
             'install_path' => __DIR__ . '/../consolidation/self-update',
             'aliases' => array(),
             'reference' => '117dcc9494dc970a6ae307103c41d654e6253bc4',
-            'dev_requirement' => false,
+            'dev_requirement' => true,
         ),
         'consolidation/site-alias' => array(
             'pretty_version' => '3.1.3',
@@ -116,7 +116,7 @@
             'install_path' => __DIR__ . '/../consolidation/site-alias',
             'aliases' => array(),
             'reference' => 'e2784362e98f315c996fb2b9ed80a9118a0ba8b7',
-            'dev_requirement' => false,
+            'dev_requirement' => true,
         ),
         'consolidation/site-process' => array(
             'pretty_version' => '4.1.3',
@@ -125,7 +125,7 @@
             'install_path' => __DIR__ . '/../consolidation/site-process',
             'aliases' => array(),
             'reference' => 'ca41dc82b280bccdf1b231d5599c7d506fba5c04',
-            'dev_requirement' => false,
+            'dev_requirement' => true,
         ),
         'dflydev/dot-access-data' => array(
             'pretty_version' => 'v1.1.0',
@@ -134,7 +134,7 @@
             'install_path' => __DIR__ . '/../dflydev/dot-access-data',
             'aliases' => array(),
             'reference' => '3fbd874921ab2c041e899d044585a2ab9795df8a',
-            'dev_requirement' => false,
+            'dev_requirement' => true,
         ),
         'doctrine/annotations' => array(
             'pretty_version' => '1.13.2',
@@ -797,12 +797,12 @@
             ),
         ),
         'drupal/recommended-project' => array(
-            'pretty_version' => '1.0.0+no-version-set',
-            'version' => '1.0.0.0',
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => NULL,
+            'reference' => '8d08166785fd7b817b671599139c7a05fe4b1792',
             'dev_requirement' => false,
         ),
         'drupal/responsive_image' => array(
@@ -950,13 +950,13 @@
             ),
         ),
         'drush/drush' => array(
-            'pretty_version' => '11.0.4',
-            'version' => '11.0.4.0',
+            'pretty_version' => '11.0.5',
+            'version' => '11.0.5.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../drush/drush',
             'aliases' => array(),
-            'reference' => '94707767c12dd2282556089f08b599512f4d1050',
-            'dev_requirement' => false,
+            'reference' => 'dce2da2806961827662384058b460cc432fa24df',
+            'dev_requirement' => true,
         ),
         'egulias/email-validator' => array(
             'pretty_version' => '3.1.2',
@@ -974,7 +974,7 @@
             'install_path' => __DIR__ . '/../enlightn/security-checker',
             'aliases' => array(),
             'reference' => 'dc5bce653fa4d9c792e9dcffa728c0642847c1e1',
-            'dev_requirement' => false,
+            'dev_requirement' => true,
         ),
         'grasmash/expander' => array(
             'pretty_version' => '1.0.0',
@@ -983,7 +983,7 @@
             'install_path' => __DIR__ . '/../grasmash/expander',
             'aliases' => array(),
             'reference' => '95d6037344a4be1dd5f8e0b0b2571a28c397578f',
-            'dev_requirement' => false,
+            'dev_requirement' => true,
         ),
         'guzzlehttp/guzzle' => array(
             'pretty_version' => '6.5.5',
@@ -1055,7 +1055,7 @@
             'install_path' => __DIR__ . '/../league/container',
             'aliases' => array(),
             'reference' => '84ecbc2dbecc31bd23faf759a0e329ee49abddbd',
-            'dev_requirement' => false,
+            'dev_requirement' => true,
         ),
         'masterminds/html5' => array(
             'pretty_version' => '2.7.5',
@@ -1073,10 +1073,10 @@
             'install_path' => __DIR__ . '/../nikic/php-parser',
             'aliases' => array(),
             'reference' => '210577fe3cf7badcc5814d99455df46564f3c077',
-            'dev_requirement' => false,
+            'dev_requirement' => true,
         ),
         'orno/di' => array(
-            'dev_requirement' => false,
+            'dev_requirement' => true,
             'replaced' => array(
                 0 => '~2.0',
             ),
@@ -1200,7 +1200,7 @@
             'install_path' => __DIR__ . '/../psy/psysh',
             'aliases' => array(),
             'reference' => '570292577277f06f590635381a7f761a6cf4f026',
-            'dev_requirement' => false,
+            'dev_requirement' => true,
         ),
         'ralouphie/getallheaders' => array(
             'pretty_version' => '3.0.3',
@@ -1323,7 +1323,7 @@
             'install_path' => __DIR__ . '/../symfony/filesystem',
             'aliases' => array(),
             'reference' => '731f917dc31edcffec2c6a777f3698c33bea8f01',
-            'dev_requirement' => false,
+            'dev_requirement' => true,
         ),
         'symfony/finder' => array(
             'pretty_version' => 'v5.4.2',
@@ -1332,7 +1332,7 @@
             'install_path' => __DIR__ . '/../symfony/finder',
             'aliases' => array(),
             'reference' => 'e77046c252be48c48a40816187ed527703c8f76c',
-            'dev_requirement' => false,
+            'dev_requirement' => true,
         ),
         'symfony/http-client-contracts' => array(
             'pretty_version' => 'v2.5.0',
@@ -1395,7 +1395,7 @@
             'install_path' => __DIR__ . '/../symfony/polyfill-intl-grapheme',
             'aliases' => array(),
             'reference' => '81b86b50cf841a64252b439e738e97f4a34e2783',
-            'dev_requirement' => false,
+            'dev_requirement' => true,
         ),
         'symfony/polyfill-intl-idn' => array(
             'pretty_version' => 'v1.23.0',
@@ -1509,7 +1509,7 @@
             'install_path' => __DIR__ . '/../symfony/string',
             'aliases' => array(),
             'reference' => 'e6a5d5ecf6589c5247d18e0e74e30b11dfd51a3d',
-            'dev_requirement' => false,
+            'dev_requirement' => true,
         ),
         'symfony/translation' => array(
             'pretty_version' => 'v4.4.34',
@@ -1587,7 +1587,7 @@
             'install_path' => __DIR__ . '/../webflo/drupal-finder',
             'aliases' => array(),
             'reference' => 'c8e5dbe65caef285fec8057a4c718a0d4138d1ee',
-            'dev_requirement' => false,
+            'dev_requirement' => true,
         ),
         'webmozart/assert' => array(
             'pretty_version' => '1.10.0',
@@ -1596,7 +1596,7 @@
             'install_path' => __DIR__ . '/../webmozart/assert',
             'aliases' => array(),
             'reference' => '6964c76c7804814a842473e0c8fd15bab0f18e25',
-            'dev_requirement' => false,
+            'dev_requirement' => true,
         ),
         'webmozart/path-util' => array(
             'pretty_version' => '2.3.0',
@@ -1605,7 +1605,7 @@
             'install_path' => __DIR__ . '/../webmozart/path-util',
             'aliases' => array(),
             'reference' => 'd939f7edc24c9a1bb9c0dee5cb05d8e859490725',
-            'dev_requirement' => false,
+            'dev_requirement' => true,
         ),
     ),
 );
