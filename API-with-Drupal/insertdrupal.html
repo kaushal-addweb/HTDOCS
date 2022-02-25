@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="insertdrupal.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+    <script src="insertdrupal.js"></script>
+</head>
+
+<body>
+    <div class="container" id="main">
+        <div class="wrapper">
+            <div class="title"><span>Insert Data</span></div>
+            <form action="#" method="post">
+                <div class="row">
+                    <input type="text" id="utitle" name="newtitle" placeholder="Enter Title" required>
+                </div>
+                <input type="text" id="ubody" class="newbody" name="ubody" placeholder="Enter Body" required>
+
+                <div class="row button">
+                    <button type="button" class="btcolor" onclick="storedata()">Send Data</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
