@@ -1,0 +1,5 @@
+global-css-and-js:
+  css:
+    theme:
+      css/bootstrap.min.css: {}
+      css/style.css: {}

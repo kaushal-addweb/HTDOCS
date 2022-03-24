@@ -1,0 +1,71 @@
+SQL Queries
+1) DDL - Data Definition language - Create, Alter, Truncate, Drop
+2) DML - Data Manipulation Language - Insert, Update, Delete
+3) DQL - Data Query Language - Select
+3) DCL - Data Control Language - Grant, Revoke
+5) TCL - Transaction Control Language - Commit, Rollback
+
+sudo /opt/lampp/bin/mysql -u root -p
+
+show databases
+
+create database batch6;
+
+use batch6;
+
+DDL
+
+create table student(id bigint(10), name varchar(50), address varchar(50), mobile bigint(10));
+
+Alter table Student add email varchar(50);
+
+show tables;
+
+desc student;
+
+alter table student modify email varchar(60);
+
+alter table student drop email;
+
+truncate table student;
+
+Drop table student;
+
+DML
+
+Insert into student(id,name,address, mobile,email) values(1,'Aaqib','Ahmedabad',9876543210,'aaqib@gmail.com');
+
+Insert into student(id,name,address, mobile) values(2,'Aakash','Jaipur',7410852963);
+
+Insert into student values(3, 'Ronak', 'jaipur', 9638527410,'ronak@gmail.com'),(4, 'Jinal', 'Ahmedabad', 8529637410,'jinal@gmail.com');
+
+Update student set email='' where id=3;
+
+Update student set name='Ronak Jain',address='Station Road, Jaipur', mobile=9638527410, email='' where id=3;
+
+Delete from student where id=2;
+
+DQL
+
+Select * from student;
+select id,name from student;
+
+
+Employee -id, name, address, mobile
+official - id, desg, dept, email
+
+
+Order_details - id, name. price, quantity
+
+
+
+Check -- Not supported
+Default
+create table student(id bigint(10) primary key, name varchar(50) not null, address varchar(50) default 'India', mobile bigint(10) unique);
+
+create table student1(id bigint(10) auto_increment primary key, name varchar(50) not null, address varchar(50) default 'India', mobile bigint(10) unique);
+
+Insert into student1(name,address, mobile,email) values('Nidhi',7410852963,'nidhi@gmail.com');
+
+
+

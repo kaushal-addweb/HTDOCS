@@ -3,9 +3,10 @@ function storedata() {
     let ubody = document.getElementById("ubody").value;
 
     let user = {
-        type: { "target_id": "page" },
+        _links: { type: { href: "http://localhost/drupal-9.3.0/rest/type/node/page" } },
+        type: { target_id: "page" },
         title: { value: utitle },
-        body: { value: ubody }
+        body: { value: ubody },
     };
     const options = {
         method: "POST",

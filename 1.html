@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="drupal.css">
+    
+</head>
+<body>
+    <div id="main">
+        <from method="post">
+            <label for="uname"><b>username</b></label>
+            <input id="name" type="text"
+            placeholder="EnterUsername"
+            name="uname"
+            required
+            />
+
+            <label for="pws"><b>Password</b></label>
+            <input id="password"
+             type="password"
+             placeholder="Enter Password"
+             name="psw"
+             required
+             />
+             <button type="button" onclick="connect()">Login</button>
+             <label>
+                 <input type="checkbox" checked="checked" name="remember"/>Remember me,
+             </label>
+        </from>
+    </div>
+    <script src="drupal.js"></script>
+</body>
+</html>

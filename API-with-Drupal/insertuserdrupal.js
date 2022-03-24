@@ -2,18 +2,16 @@ function senddata() {
     let fname = document.querySelector("input[name='firstname']").value;
     let mail = document.querySelector("input[name='email']").value;
     let password = document.querySelector("input[name='password']").value;
-    let div = document.querySelector("#detail");
-
-    div.innerHTML = "Sending Data....";
+    let div = document.querySelector('#details');
+    div.innerHTML = "Sending Data......";
 
     let user = {
-        _links: { type: { href: "http://localhost/drupal-9.3.0/rest/type/user/user" } },
         name: { value: fname },
         mail: { value: mail },
         pass: { value: password },
-        status: { value: "1" }
     };
-    const options = {
+
+    const option = {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -21,11 +19,11 @@ function senddata() {
         body: JSON.stringify(user),
     };
 
-    fetch("http://localhost/drupal-9.3.0/user/register?_format=json", options)
+    fetch("http://localhost/drupal-9.3.0/user/register?_format=json", option)
         .then((response) => {
             if (response.status !== 200) {
                 console.log("Error:" + response.statusText);
-                throw new Error(`${response.status}`);
+                throw new Error(`${response.status }`);
             } else {
                 return response.json();
             }
@@ -38,18 +36,21 @@ function senddata() {
             let date = user.created[0]["value"];
             let creationDate = new Date(date);
             let dateString = creationDate.toDateString();
-            let timeString = creationDate.toLocaleDateString();
+            let timeString = creationDate.toLocaleTimeString();
             let p1 = document.createElement("p");
-            p1.innerHTML = `First Name:${firstName}`;
+            p1.innerHTML = `Firstname:${firstName}`;
             let p2 = document.createElement("p");
             p2.innerHTML = `Id:${id}`;
             let p3 = document.createElement("p");
             p3.innerHTML = `Created At:${dateString},${timeString}`;
+
             div.appendChild(p1);
             div.appendChild(p2);
             div.appendChild(p3);
         })
-        .catch((error) => {
-            alert(`Error in server comm ${error}`);
-        })
+
+    .catch((error) => {
+        alert(`Error in server comm ${error}`);
+    });
+
 }

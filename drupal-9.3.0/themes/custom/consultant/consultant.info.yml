@@ -1,0 +1,29 @@
+name: Consultant
+description: 'This is Consultant Theme'
+type: theme
+core: 8.x
+package: other
+base theme: false
+core_version_requirement: ^8 || ^9
+
+#Libraries
+libraries:
+  - consultant/global-css-and-js
+
+#Regions
+regions:
+  social_links: 'Social Links'
+  menu: 'Menu'
+  slider: 'Slider'
+  content_1: 'Content 1'
+  content_2: 'Content 2'
+  content_3: 'Content 3'
+  content_4: 'Content 4'
+  content_5: 'Content 5'
+  content_6: 'Content 6'
+  content_7: 'Content 7'
+  right_side_content: 'Right Side Content'
+  footer_column_1: 'Footer column 1'
+  footer_column_2: 'Footer column 2'
+  footer_column_3: 'Footer column 3'
+  footer_column_4: 'Footer column 4'
