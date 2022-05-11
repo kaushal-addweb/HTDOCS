@@ -1,0 +1,16 @@
+basic_page.basicpage:
+  title: Basic Page
+  description: basic page link
+  route_name: basic_page.basicpage
+  weight: 8
+  menu_name: main
+  options:
+    attributes:
+      target: _blank
+
+basic_page.information:
+  title: Information Page
+  description: Information page link
+  route_name: basic_page.information
+  weight: 9
+  menu_name: main
