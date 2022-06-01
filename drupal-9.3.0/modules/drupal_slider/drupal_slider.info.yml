@@ -1,0 +1,12 @@
+name: Drupal Slider
+type: module
+description: 'Provides Drupal slider (Slider pro js) integration with Views.'
+core_version_requirement: ^8.8 || ^9
+package: Slider
+dependencies:
+  - drupal:views
+
+# Information added by Drupal.org packaging script on 2021-12-17
+version: '8.x-2.0+2-dev'
+project: 'drupal_slider'
+datestamp: 1639757623

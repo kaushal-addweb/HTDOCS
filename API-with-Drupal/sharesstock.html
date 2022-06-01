@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shares Price</title>
+
+</head>
+
+<body>
+    <div id="shares">
+
+    </div>
+    <script type="text/javascript">
+        fetch('https://api.stockdata.org/v1/data/quote?symbols=AAPL,TSLA,MSFT&api_token=rgZhi3u1F3R5pMiH0ERm5ovuRGxQW46MOE2aLgDX')
+            .then(res => res.json())
+            .then(res => {
+
+                console.log(res)
+                console.log(res.data)
+
+                var abc = res.data.length
+                    //console.log(abc)
+                var n1 = document.getElementById('shares')
+                let text = " "
+                for (i = 0; i < abc; i++) {
+                    text += `<h5> Ticker: ${res.data[i].ticker}</h5>` +
+                        `<h5> Name: ${res.data[i].name}</h5>` +
+                        `<h5> Price: ${res.data[i].price}</h5>` +
+                        `<h5> Day High: ${res.data[i].day_high}</h5>` +
+                        `<h5> Day Low: ${res.data[i].day_low}</h5><br/>`
+
+                }
+                n1.innerHTML = text;
+            })
+            .catch(err => {
+                console.log(err)
+            })
+    </script>
+</body>
+
+</html>

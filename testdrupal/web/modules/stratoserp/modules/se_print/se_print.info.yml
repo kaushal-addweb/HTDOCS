@@ -1,0 +1,16 @@
+name: 'StratosERP - Print system'
+description: 'Provides Printing capabilities for various other modules via FPDF'
+type: module
+core_version_requirement: ^8 || ^9
+package: StratosERP
+dependencies:
+  - stratoserp:se_invoice
+
+config_devel:
+  install: {  }
+  optional: {  }
+
+# Information added by Drupal.org packaging script on 2021-12-27
+version: '8.x-1.0-beta2'
+project: 'stratoserp'
+datestamp: 1640600731

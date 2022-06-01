@@ -1,0 +1,14 @@
+name: 'StratosERP - Report'
+description: 'Provides reporting content and functionality.'
+type: module
+core_version_requirement: ^8 || ^9
+package: StratosERP
+dependencies:
+  - stratoserp:stratoserp
+  - chartjs_api:chartjs_api
+  - views_bulk_operations:views_bulk_operations
+
+# Information added by Drupal.org packaging script on 2021-12-27
+version: '8.x-1.0-beta2'
+project: 'stratoserp'
+datestamp: 1640600731

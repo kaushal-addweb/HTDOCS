@@ -1,6 +1,6 @@
 <?php 
 
-$conn=mysqli_connect("localhost","root","","addweb");
+$conn=mysqli_connect("localhost","root","","SampleDB");
 
 if(!$conn)
 {

@@ -1,0 +1,13 @@
+name: 'StratosERP - Development helper'
+description: 'Extras for developing StratosERP, not needed for normal operations.'
+type: module
+core_version_requirement: ^8 || ^9
+package: StratosERP
+dependencies:
+  - config_devel:config_devel
+  - stratoserp:stratoserp
+
+# Information added by Drupal.org packaging script on 2021-12-27
+version: '8.x-1.0-beta2'
+project: 'stratoserp'
+datestamp: 1640600731

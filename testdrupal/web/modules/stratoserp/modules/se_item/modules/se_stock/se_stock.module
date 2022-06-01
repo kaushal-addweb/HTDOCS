@@ -1,0 +1,17 @@
+<?php
+
+declare(strict_types=1);
+
+/**
+ * @file
+ */
+
+/**
+ * Implements hook_entity_type_alter().
+ */
+function se_stock_entity_type_alter(array &$entity_types) {
+
+  /** @var \Drupal\Core\Entity\EntityTypeInterface[] $entity_types */
+  $entity = $entity_types['se_item'];
+  $entity->addConstraint('CodeSerialUnique');
+}

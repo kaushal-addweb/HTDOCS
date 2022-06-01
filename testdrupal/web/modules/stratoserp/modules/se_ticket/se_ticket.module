@@ -1,0 +1,22 @@
+<?php
+
+declare(strict_types=1);
+
+/**
+ * @file
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function se_ticket_theme() {
+  $theme = [];
+
+  $theme['se_ticket'] = [
+    'render element' => 'elements',
+    'file' => 'se_ticket.page.inc',
+    'template' => 'se_ticket',
+  ];
+
+  return $theme;
+}

@@ -1,0 +1,12 @@
+name: Geolocation - Geometry Data - Natural Earth - Countries
+type: module
+description: Import data from http://www.naturalearthdata.com/
+core_version_requirement: ^8.7.7 || ^9
+package: Geolocation
+dependencies:
+  - geolocation_geometry_data
+
+# Information added by Drupal.org packaging script on 2022-04-13
+version: '8.x-3.9'
+project: 'geolocation'
+datestamp: 1649862417

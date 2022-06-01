@@ -1,0 +1,98 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.se_contact.se_contact.se_bu_ref
+    - field.field.se_contact.se_contact.se_co_email
+    - field.field.se_contact.se_contact.se_co_mobile
+    - field.field.se_contact.se_contact.se_co_phone
+    - field.field.se_contact.se_contact.se_co_type_ref
+  module:
+    - field_layout
+    - layout_discovery
+    - se_contact
+    - telephone
+third_party_settings:
+  field_layout:
+    id: layout_twocol
+    settings:
+      label: ''
+id: se_contact.se_contact.default
+targetEntityType: se_contact
+bundle: se_contact
+mode: default
+content:
+  name:
+    type: string_textfield
+    weight: 0
+    region: top
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  revision_log_message:
+    type: string_textarea
+    weight: 4
+    settings:
+      rows: 4
+      placeholder: ''
+    region: first
+    third_party_settings: {  }
+  se_bu_ref:
+    weight: 1
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 40
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: first
+  se_co_email:
+    weight: 7
+    settings:
+      size: 25
+      placeholder: ''
+    third_party_settings: {  }
+    type: email_default
+    region: second
+  se_co_mobile:
+    weight: 5
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: telephone_default
+    region: second
+  se_co_phone:
+    weight: 6
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: telephone_default
+    region: second
+  se_co_type_ref:
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: first
+  user_id:
+    type: entity_reference_autocomplete
+    weight: 3
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+      match_limit: 10
+    region: first
+    third_party_settings: {  }
+hidden:
+  created: true
+  extra_field_actions_field: true
+  extra_field_meta_field: true
+  extra_field_revision_field: true
+  path: true
+  promote: true
+  status: true
+  sticky: true
+  uid: true

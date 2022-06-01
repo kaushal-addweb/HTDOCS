@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+name: 'Ticket type'
+vid: se_ticket_type
+description: 'Ticket type taxonomy'
+weight: 0

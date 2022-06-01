@@ -1,0 +1,22 @@
+<?php
+
+declare(strict_types=1);
+
+/**
+ * @file
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function se_invoice_theme(): array {
+  $theme = [];
+
+  $theme['se_invoice'] = [
+    'render element' => 'elements',
+    'file' => 'se_invoice.page.inc',
+    'template' => 'se_invoice',
+  ];
+
+  return $theme;
+}

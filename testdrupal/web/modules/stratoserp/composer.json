@@ -1,0 +1,32 @@
+{
+    "name": "stratoserp/stratoserp",
+    "description": "StratosERP.",
+    "type": "drupal-module",
+    "authors": [
+        {
+            "name": "Simon Lindsay",
+            "homepage": "https://www.drupal.org/u/singularo",
+            "role": "Maintainer"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/stratoserp/stratoserp/issues"
+    },
+    "license": "GPL-2.0+",
+    "require": {
+        "drupal/core": "^9.2",
+        "drupal/duration_field": "^2.0",
+        "drupal/dynamic_entity_reference": "^1.10",
+        "drupal/eva": "^2.1",
+        "drupal/extra_field": "^2.1",
+        "drupal/field_group": "^3.2",
+        "drupal/geolocation": "^3.2"
+    },
+    "require-dev": {
+        "roave/security-advisories": "dev-latest"
+    },
+    "suggest": {
+        "drupal/xero": "dev-2.x"
+    },
+    "minimum-stability": "dev"
+}

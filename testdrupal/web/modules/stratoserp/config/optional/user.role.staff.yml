@@ -1,0 +1,87 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - comment
+    - contextual
+    - se_bill
+    - se_business
+    - se_contact
+    - se_goods_receipt
+    - se_information
+    - se_invoice
+    - se_item
+    - se_payment
+    - se_purchase_order
+    - se_quote
+    - se_subscription
+    - se_ticket
+    - stratoserp
+    - system
+    - toolbar
+    - toolbar_menu
+id: staff
+label: Staff
+weight: 7
+is_admin: false
+permissions:
+  - 'access all businesses'
+  - 'access comments'
+  - 'access content'
+  - 'access contextual links'
+  - 'access stratoserp'
+  - 'access toolbar'
+  - 'access user profiles'
+  - 'add bill entities'
+  - 'add business entities'
+  - 'add contact entities'
+  - 'add goods receipt entities'
+  - 'add information entities'
+  - 'add invoice entities'
+  - 'add item entities'
+  - 'add payment entities'
+  - 'add purchase order entities'
+  - 'add quote entities'
+  - 'add subscription entities'
+  - 'add ticket entities'
+  - 'edit bill entities'
+  - 'edit business entities'
+  - 'edit contact entities'
+  - 'edit goods receipt entities'
+  - 'edit information entities'
+  - 'edit invoice entities'
+  - 'edit item entities'
+  - 'edit own comments'
+  - 'edit payment entities'
+  - 'edit purchase order entities'
+  - 'edit quote entities'
+  - 'edit subscription entities'
+  - 'edit ticket entities'
+  - 'post comments'
+  - 'skip comment approval'
+  - 'use inline mentions'
+  - 'view all bill revisions'
+  - 'view all business revisions'
+  - 'view all contact revisions'
+  - 'view all goods receipt revisions'
+  - 'view all information revisions'
+  - 'view all invoice revisions'
+  - 'view all item revisions'
+  - 'view all payment revisions'
+  - 'view all purchase order revisions'
+  - 'view all quote revisions'
+  - 'view all subscription revisions'
+  - 'view all ticket revisions'
+  - 'view bill entities'
+  - 'view business entities'
+  - 'view contact entities'
+  - 'view goods receipt entities'
+  - 'view information entities'
+  - 'view invoice entities'
+  - 'view item entities'
+  - 'view payment entities'
+  - 'view purchase order entities'
+  - 'view quote entities'
+  - 'view stratoserp in toolbar'
+  - 'view subscription entities'
+  - 'view ticket entities'

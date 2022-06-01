@@ -1,0 +1,4 @@
+name: hello-drupal7
+recipe: drupal7
+config:
+  webroot: .

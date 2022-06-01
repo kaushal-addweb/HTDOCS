@@ -43,6 +43,6 @@ function logout() {
     fetch("http://localhost/drupal-9.3.0/user/logout");
     let main = document.querySelector("#main");
     main.innerHTML = "User has been Logged out. Click to " +
-        "<br/> <a href='http://localhost/drupal.html'>Login</a>";
+        "<br/> <a href='drupal.html'>Login</a>";
     //});
 }

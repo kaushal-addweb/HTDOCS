@@ -1,0 +1,38 @@
+name: 'StratosERP - Goods receipt'
+description: 'Provides Goods receipt content type and related configuration.'
+type: module
+core_version_requirement: ^8 || ^9
+package: StratosERP
+dependencies:
+  - hook_event_dispatcher:hook_event_dispatcher
+  - drupal:field
+  - drupal:menu_ui
+  - drupal:path
+  - drupal:text
+  - drupal:user
+  - stratoserp:se_item_line
+  - stratoserp:se_purchase_order
+  - stratoserp:se_stock
+
+config_devel:
+  install:
+    - core.entity_form_display.se_goods_receipt.se_goods_receipt.default
+    - core.entity_view_display.se_goods_receipt.se_goods_receipt.default
+    - field.field.se_goods_receipt.se_goods_receipt.se_bu_ref
+    - field.field.se_goods_receipt.se_goods_receipt.se_co_ref
+    - field.field.se_goods_receipt.se_goods_receipt.se_gr_lines
+    - field.field.se_goods_receipt.se_goods_receipt.se_gr_purchase_order_ref
+    - field.field.se_goods_receipt.se_goods_receipt.se_gr_total
+    - field.storage.se_goods_receipt.se_bu_ref
+    - field.storage.se_goods_receipt.se_co_ref
+    - field.storage.se_goods_receipt.se_gr_lines
+    - field.storage.se_goods_receipt.se_gr_purchase_order_ref
+    - field.storage.se_goods_receipt.se_gr_total
+  optional:
+    - views.view.se_goods_receipt_eva
+    - views.view.se_goods_receipt_list
+
+# Information added by Drupal.org packaging script on 2021-12-27
+version: '8.x-1.0-beta2'
+project: 'stratoserp'
+datestamp: 1640600731

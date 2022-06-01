@@ -1,7 +1,7 @@
 <?php
 
 try {
-    $pdo = new PDO("mysql:host=localhost;dbname=practise", "root", "");
+    $pdo = new PDO("mysql:host=localhost;dbname=SampleDB", "root", "");
 	$add='jaipur';
     $sql = 'SELECT * FROM student where address= :address';
 	//echo $sql;

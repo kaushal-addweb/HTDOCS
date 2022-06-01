@@ -1,0 +1,22 @@
+<?php
+
+declare(strict_types=1);
+
+/**
+ * @file
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function se_goods_receipt_theme() {
+  $theme = [];
+
+  $theme['se_goods_receipt'] = [
+    'render element' => 'elements',
+    'file' => 'se_goods_receipt.page.inc',
+    'template' => 'se_goods_receipt',
+  ];
+
+  return $theme;
+}

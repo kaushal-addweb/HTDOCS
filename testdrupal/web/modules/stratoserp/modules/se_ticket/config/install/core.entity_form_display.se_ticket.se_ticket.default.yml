@@ -1,0 +1,163 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.se_ticket.se_ticket.se_attachments
+    - field.field.se_ticket.se_ticket.se_body
+    - field.field.se_ticket.se_ticket.se_bu_ref
+    - field.field.se_ticket.se_ticket.se_co_ref
+    - field.field.se_ticket.se_ticket.se_ti_open_date
+    - field.field.se_ticket.se_ticket.se_ti_owner_ref
+    - field.field.se_ticket.se_ticket.se_ti_priority_ref
+    - field.field.se_ticket.se_ticket.se_ti_scheduled
+    - field.field.se_ticket.se_ticket.se_ti_status_ref
+    - field.field.se_ticket.se_ticket.se_ti_type_ref
+  module:
+    - comment
+    - datetime_range
+    - field_group
+    - field_layout
+    - file
+    - layout_discovery
+    - se_ticket
+    - text
+third_party_settings:
+  field_layout:
+    id: layout_twocol
+    settings:
+      label: ''
+  field_group:
+    group_ti_extra:
+      children:
+        - user_id
+        - revision_log_message
+      label: Extra
+      region: bottom
+      parent_name: ''
+      weight: 12
+      format_type: details
+      format_settings:
+        classes: ''
+        id: ''
+        open: false
+        description: ''
+        required_fields: true
+id: se_ticket.se_ticket.default
+targetEntityType: se_ticket
+bundle: se_ticket
+mode: default
+content:
+  name:
+    type: string_textfield
+    weight: 0
+    region: top
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  revision_log_message:
+    type: string_textarea
+    weight: 2
+    region: bottom
+    settings:
+      rows: 4
+      placeholder: ''
+    third_party_settings: {  }
+  se_attachments:
+    type: file_generic
+    weight: 11
+    region: bottom
+    settings:
+      progress_indicator: throbber
+    third_party_settings: {  }
+  se_body:
+    type: text_textarea
+    weight: 9
+    region: bottom
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  se_bu_ref:
+    type: entity_reference_autocomplete
+    weight: 1
+    region: first
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  se_co_ref:
+    type: entity_reference_autocomplete
+    weight: 2
+    region: first
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  se_ti_open_date:
+    type: datetime_timestamp
+    weight: 5
+    region: second
+    settings: {  }
+    third_party_settings: {  }
+  se_ti_owner_ref:
+    type: entity_reference_autocomplete
+    weight: 3
+    region: first
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  se_ti_priority_ref:
+    type: entity_reference_autocomplete
+    weight: 7
+    region: second
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  se_ti_scheduled:
+    type: daterange_default
+    weight: 6
+    region: second
+    settings: {  }
+    third_party_settings: {  }
+  se_ti_status_ref:
+    type: entity_reference_autocomplete
+    weight: 8
+    region: second
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  se_ti_type_ref:
+    type: entity_reference_autocomplete
+    weight: 4
+    region: first
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  user_id:
+    type: entity_reference_autocomplete
+    weight: 1
+    region: bottom
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }

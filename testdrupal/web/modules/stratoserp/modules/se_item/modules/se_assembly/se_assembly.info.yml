@@ -1,0 +1,30 @@
+name: 'StratosERP - Assembly line item'
+description: 'Provides a selectable line item for assemblies.'
+type: module
+core_version_requirement: ^8 || ^9
+package: StratosERP
+dependencies:
+  - stratoserp:se_item
+
+config_devel:
+  install:
+    - field.field.se_item.se_assembly.se_it_active
+    - field.field.se_item.se_assembly.se_it_code
+    - field.field.se_item.se_assembly.se_it_cost_price
+    - field.field.se_item.se_assembly.se_it_description
+    - field.field.se_item.se_assembly.se_it_manufacturer_ref
+    - field.field.se_item.se_assembly.se_it_product_type_ref
+    - field.field.se_item.se_assembly.se_it_sale_category_ref
+    - field.field.se_item.se_assembly.se_it_sell_price
+    - field.field.se_item.se_assembly.se_it_serial
+    - se_item.se_item_type.se_assembly
+  optional:
+    - core.entity_form_display.se_item.se_assembly.default
+    - core.entity_view_display.se_item.se_assembly.default
+    - views.view.se_item_assembly_list
+
+
+# Information added by Drupal.org packaging script on 2021-12-27
+version: '8.x-1.0-beta2'
+project: 'stratoserp'
+datestamp: 1640600731

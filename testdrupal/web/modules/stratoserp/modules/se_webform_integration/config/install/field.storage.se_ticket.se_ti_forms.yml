@@ -1,0 +1,19 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - se_ticket
+    - webform
+id: se_ticket.se_ti_forms
+field_name: se_ti_forms
+entity_type: se_ticket
+type: webform
+settings:
+  target_type: webform
+module: webform
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

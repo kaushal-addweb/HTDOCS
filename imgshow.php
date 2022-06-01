@@ -1,5 +1,5 @@
 <?php
-$con=mysqli_connect("localhost","root","","practise");
+$con=mysqli_connect("localhost","root","","SampleDB");
 $sql = "Select * from image";
 
 $query =mysqli_query($con, $sql);

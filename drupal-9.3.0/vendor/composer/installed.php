@@ -5,7 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '4f135e688a2691d9c33f3fadd8991fa283fbfa13',
+        'reference' => 'ff3984b0d1feb63b36fabe192586f64419a4a12f',
         'name' => 'drupal/legacy-project',
         'dev' => true,
     ),
@@ -276,6 +276,15 @@
             'replaced' => array(
                 0 => '9.3.0',
             ),
+        ),
+        'drupal/bootstrap' => array(
+            'pretty_version' => '3.24.0',
+            'version' => '3.24.0.0',
+            'type' => 'drupal-theme',
+            'install_path' => __DIR__ . '/../../themes/contrib/bootstrap',
+            'aliases' => array(),
+            'reference' => '8.x-3.24',
+            'dev_requirement' => false,
         ),
         'drupal/breakpoint' => array(
             'dev_requirement' => false,
@@ -577,6 +586,15 @@
             'reference' => '4.1.5',
             'dev_requirement' => false,
         ),
+        'drupal/dxpr_theme' => array(
+            'pretty_version' => '1.2.2',
+            'version' => '1.2.2.0',
+            'type' => 'drupal-theme',
+            'install_path' => __DIR__ . '/../../themes/contrib/dxpr_theme',
+            'aliases' => array(),
+            'reference' => '1.2.2',
+            'dev_requirement' => false,
+        ),
         'drupal/dynamic_page_cache' => array(
             'dev_requirement' => false,
             'replaced' => array(
@@ -594,6 +612,15 @@
             'replaced' => array(
                 0 => '9.3.0',
             ),
+        ),
+        'drupal/examples' => array(
+            'pretty_version' => '3.0.3',
+            'version' => '3.0.3.0',
+            'type' => 'drupal-module',
+            'install_path' => __DIR__ . '/../../modules/contrib/examples',
+            'aliases' => array(),
+            'reference' => '3.0.3',
+            'dev_requirement' => false,
         ),
         'drupal/field' => array(
             'dev_requirement' => false,
@@ -624,6 +651,15 @@
             'replaced' => array(
                 0 => '9.3.0',
             ),
+        ),
+        'drupal/flexslider' => array(
+            'pretty_version' => '2.0.0',
+            'version' => '2.0.0.0',
+            'type' => 'drupal-module',
+            'install_path' => __DIR__ . '/../../modules/contrib/flexslider',
+            'aliases' => array(),
+            'reference' => '8.x-2.0',
+            'dev_requirement' => false,
         ),
         'drupal/forum' => array(
             'dev_requirement' => false,
@@ -697,7 +733,16 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '4f135e688a2691d9c33f3fadd8991fa283fbfa13',
+            'reference' => 'ff3984b0d1feb63b36fabe192586f64419a4a12f',
+            'dev_requirement' => false,
+        ),
+        'drupal/libraries' => array(
+            'pretty_version' => '3.0.0-beta2',
+            'version' => '3.0.0.0-beta2',
+            'type' => 'drupal-module',
+            'install_path' => __DIR__ . '/../../modules/contrib/libraries',
+            'aliases' => array(),
+            'reference' => '8.x-3.0-beta2',
             'dev_requirement' => false,
         ),
         'drupal/link' => array(
@@ -711,6 +756,15 @@
             'replaced' => array(
                 0 => '9.3.0',
             ),
+        ),
+        'drupal/mailsystem' => array(
+            'pretty_version' => '4.3.0',
+            'version' => '4.3.0.0',
+            'type' => 'drupal-module',
+            'install_path' => __DIR__ . '/../../modules/contrib/mailsystem',
+            'aliases' => array(),
+            'reference' => '8.x-4.3',
+            'dev_requirement' => false,
         ),
         'drupal/media' => array(
             'dev_requirement' => false,
@@ -802,6 +856,15 @@
                 0 => '9.3.0',
             ),
         ),
+        'drupal/phpmailer_smtp' => array(
+            'pretty_version' => '2.0.4',
+            'version' => '2.0.4.0',
+            'type' => 'drupal-module',
+            'install_path' => __DIR__ . '/../../modules/contrib/phpmailer_smtp',
+            'aliases' => array(),
+            'reference' => '2.0.4',
+            'dev_requirement' => false,
+        ),
         'drupal/quickedit' => array(
             'dev_requirement' => false,
             'replaced' => array(
@@ -856,6 +919,15 @@
                 0 => '9.3.0',
             ),
         ),
+        'drupal/simple_gmap' => array(
+            'pretty_version' => '3.0.1',
+            'version' => '3.0.1.0',
+            'type' => 'drupal-module',
+            'install_path' => __DIR__ . '/../../modules/contrib/simple_gmap',
+            'aliases' => array(),
+            'reference' => '3.0.1',
+            'dev_requirement' => false,
+        ),
         'drupal/standard' => array(
             'dev_requirement' => false,
             'replaced' => array(
@@ -873,6 +945,15 @@
             'replaced' => array(
                 0 => '9.3.0',
             ),
+        ),
+        'drupal/swiftmailer' => array(
+            'pretty_version' => '2.2.0',
+            'version' => '2.2.0.0',
+            'type' => 'drupal-module',
+            'install_path' => __DIR__ . '/../../modules/contrib/swiftmailer',
+            'aliases' => array(),
+            'reference' => '8.x-2.2',
+            'dev_requirement' => false,
         ),
         'drupal/syslog' => array(
             'dev_requirement' => false,
@@ -939,6 +1020,15 @@
             'replaced' => array(
                 0 => '9.3.0',
             ),
+        ),
+        'drupal/views_bulk_operations' => array(
+            'pretty_version' => '4.1.2',
+            'version' => '4.1.2.0',
+            'type' => 'drupal-module',
+            'install_path' => __DIR__ . '/../../modules/contrib/views_bulk_operations',
+            'aliases' => array(),
+            'reference' => '4.1.2',
+            'dev_requirement' => false,
         ),
         'drupal/views_ui' => array(
             'dev_requirement' => false,
@@ -1019,6 +1109,15 @@
             'install_path' => __DIR__ . '/../guzzlehttp/psr7',
             'aliases' => array(),
             'reference' => '1afdd860a2566ed3c2b0b4a3de6e23434a79ec85',
+            'dev_requirement' => false,
+        ),
+        'html2text/html2text' => array(
+            'pretty_version' => '4.3.1',
+            'version' => '4.3.1.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../html2text/html2text',
+            'aliases' => array(),
+            'reference' => '61ad68e934066a6f8df29a3d23a6460536d0855c',
             'dev_requirement' => false,
         ),
         'laminas/laminas-diactoros' => array(
@@ -1124,6 +1223,15 @@
             'install_path' => __DIR__ . '/../pear/pear_exception',
             'aliases' => array(),
             'reference' => 'b14fbe2ddb0b9f94f5b24cf08783d599f776fff0',
+            'dev_requirement' => false,
+        ),
+        'phpmailer/phpmailer' => array(
+            'pretty_version' => 'v6.6.0',
+            'version' => '6.6.0.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../phpmailer/phpmailer',
+            'aliases' => array(),
+            'reference' => 'e43bac82edc26ca04b36143a48bde1c051cfd5b1',
             'dev_requirement' => false,
         ),
         'psr/cache' => array(
@@ -1247,6 +1355,15 @@
             'reference' => 'a4faaa6f532c6086bc66c29e1bc6c29593e1ca7c',
             'dev_requirement' => false,
         ),
+        'swiftmailer/swiftmailer' => array(
+            'pretty_version' => 'v6.3.0',
+            'version' => '6.3.0.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../swiftmailer/swiftmailer',
+            'aliases' => array(),
+            'reference' => '8a5d5072dca8f48460fce2f4131fcc495eec654c',
+            'dev_requirement' => false,
+        ),
         'symfony-cmf/routing' => array(
             'pretty_version' => '2.3.4',
             'version' => '2.3.4.0',
@@ -1263,6 +1380,15 @@
             'install_path' => __DIR__ . '/../symfony/console',
             'aliases' => array(),
             'reference' => '329b3a75cc6b16d435ba1b1a41df54a53382a3f0',
+            'dev_requirement' => false,
+        ),
+        'symfony/css-selector' => array(
+            'pretty_version' => 'v5.4.3',
+            'version' => '5.4.3.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../symfony/css-selector',
+            'aliases' => array(),
+            'reference' => 'b0a190285cd95cb019237851205b8140ef6e368e',
             'dev_requirement' => false,
         ),
         'symfony/debug' => array(
@@ -1569,6 +1695,15 @@
             'install_path' => __DIR__ . '/../symfony/yaml',
             'aliases' => array(),
             'reference' => '2c309e258adeb9970229042be39b360d34986fad',
+            'dev_requirement' => false,
+        ),
+        'tijsverkoyen/css-to-inline-styles' => array(
+            'pretty_version' => '2.2.4',
+            'version' => '2.2.4.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../tijsverkoyen/css-to-inline-styles',
+            'aliases' => array(),
+            'reference' => 'da444caae6aca7a19c0c140f68c6182e337d5b1c',
             'dev_requirement' => false,
         ),
         'twig/twig' => array(

@@ -1,0 +1,9 @@
+includes:
+  - %rootDir%/../../mglaman/phpstan-drupal/extension.neon
+  - %rootDir%/../../phpstan/phpstan-deprecation-rules/rules.neon
+
+parameters:
+  level: 1
+  excludePaths:
+    analyseAndScan:
+      - src/Generators

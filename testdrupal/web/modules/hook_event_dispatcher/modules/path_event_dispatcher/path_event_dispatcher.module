@@ -1,0 +1,41 @@
+<?php
+
+/**
+ * @file
+ * Path event dispatcher submodule.
+ */
+
+use Drupal\path_alias\PathAliasInterface;
+use Drupal\path_event_dispatcher\Event\Path\PathDeleteEvent;
+use Drupal\path_event_dispatcher\Event\Path\PathInsertEvent;
+use Drupal\path_event_dispatcher\Event\Path\PathUpdateEvent;
+
+/**
+ * Implements hook_ENTITY_TYPE_insert().
+ */
+function path_event_dispatcher_path_alias_insert(PathAliasInterface $pathAlias) {
+  /** @var \Drupal\hook_event_dispatcher\Manager\HookEventDispatcherManagerInterface $manager */
+  $manager = Drupal::service('hook_event_dispatcher.manager');
+  $event = new PathInsertEvent($pathAlias);
+  $manager->register($event);
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_update().
+ */
+function path_event_dispatcher_path_alias_update(PathAliasInterface $pathAlias) {
+  /** @var \Drupal\hook_event_dispatcher\Manager\HookEventDispatcherManagerInterface $manager */
+  $manager = Drupal::service('hook_event_dispatcher.manager');
+  $event = new PathUpdateEvent($pathAlias);
+  $manager->register($event);
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_delete().
+ */
+function path_event_dispatcher_path_alias_delete(PathAliasInterface $pathAlias) {
+  /** @var \Drupal\hook_event_dispatcher\Manager\HookEventDispatcherManagerInterface $manager */
+  $manager = Drupal::service('hook_event_dispatcher.manager');
+  $event = new PathDeleteEvent($pathAlias);
+  $manager->register($event);
+}

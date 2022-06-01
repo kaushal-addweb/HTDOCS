@@ -1,0 +1,20 @@
+name: 'StratosERP - Items'
+description: 'Provides a stock/service item line field.'
+type: module
+core_version_requirement: ^8 || ^9
+package: StratosERP
+dependencies:
+  - hook_event_dispatcher:hook_event_dispatcher
+  - drupal:field
+  - drupal:image
+  - drupal:text
+  - dynamic_entity_reference:dynamic_entity_reference
+
+config_devel:
+  install: {  }
+  optional: {  }
+
+# Information added by Drupal.org packaging script on 2021-12-27
+version: '8.x-1.0-beta2'
+project: 'stratoserp'
+datestamp: 1640600731

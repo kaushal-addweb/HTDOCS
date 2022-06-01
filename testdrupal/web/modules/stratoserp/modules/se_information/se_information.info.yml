@@ -1,0 +1,26 @@
+name: 'StratosERP - Information'
+description: 'Provides Information entity type and related configuration.'
+type: module
+core_version_requirement: ^8 || ^9
+package: StratosERP
+dependencies:
+  - stratoserp:se_business
+  - stratoserp:stratoserp
+
+config_devel:
+  install:
+    - comment.type.se_if_comments
+    - core.entity_form_display.comment.se_if_comments.default
+    - core.entity_view_display.comment.se_if_comments.default
+    - field.field.comment.se_if_comments.comment_body
+    - field.storage.se_information.se_bu_ref
+    - field.storage.se_information.se_if_attachments
+    - field.storage.se_information.se_if_body
+    - field.storage.se_information.se_if_comments
+    - field.storage.se_information.se_if_images
+  optional: {  }
+
+# Information added by Drupal.org packaging script on 2021-12-27
+version: '8.x-1.0-beta2'
+project: 'stratoserp'
+datestamp: 1640600731

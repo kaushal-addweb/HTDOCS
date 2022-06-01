@@ -1,0 +1,48 @@
+name: 'StratosERP - Timekeeping'
+description: 'Provides Timekeeping components and related configuration.'
+type: module
+core_version_requirement: ^8 || ^9
+package: StratosERP
+dependencies:
+  - hook_event_dispatcher:hook_event_dispatcher
+  - duration_field:duration_field
+  - drupal:comment
+  - drupal:views
+  - stratoserp:se_business
+  - stratoserp:se_invoice
+  - stratoserp:se_ticket
+
+config_devel:
+  install:
+    - comment.type.se_timekeeping
+    - core.entity_view_mode.comment.hide_comments
+    - field.field.comment.se_timekeeping.se_bu_ref
+    - field.field.comment.se_timekeeping.se_tk_amount
+    - field.field.comment.se_timekeeping.se_tk_billable
+    - field.field.comment.se_timekeeping.se_tk_billed
+    - field.field.comment.se_timekeeping.se_tk_comment
+    - field.field.comment.se_timekeeping.se_tk_date
+    - field.field.comment.se_timekeeping.se_tk_item
+    - field.field.comment.se_timekeeping.se_tk_review
+    - field.storage.comment.se_bu_ref
+    - field.storage.comment.se_tk_amount
+    - field.storage.comment.se_tk_billable
+    - field.storage.comment.se_tk_billed
+    - field.storage.comment.se_tk_comment
+    - field.storage.comment.se_tk_date
+    - field.storage.comment.se_tk_item
+    - field.storage.comment.se_tk_review
+    - field.storage.se_ticket.se_timekeeping
+  optional:
+    - core.entity_form_display.comment.se_timekeeping.default
+    - core.entity_view_display.comment.se_timekeeping.default
+    - core.entity_view_display.comment.se_timekeeping.hide_comments
+    - field.field.comment.se_timekeeping.se_tk_invoice_ref
+    - field.storage.comment.se_tk_invoice_ref
+    - views.view.se_timekeeping_eva
+    - views.view.se_timekeeping_list
+
+# Information added by Drupal.org packaging script on 2021-12-27
+version: '8.x-1.0-beta2'
+project: 'stratoserp'
+datestamp: 1640600731

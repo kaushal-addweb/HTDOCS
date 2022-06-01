@@ -1,0 +1,39 @@
+name: 'StratosERP - Item'
+description: 'Provides Item content type and related configuration.'
+type: module
+core_version_requirement: ^8 || ^9
+package: StratosERP
+dependencies:
+  - hook_event_dispatcher:hook_event_dispatcher
+  - dynamic_entity_reference:dynamic_entity_reference
+  - stratoserp:stratoserp
+
+config_devel:
+  install:
+    - field.storage.se_item.se_it_active
+    - field.storage.se_item.se_it_code
+    - field.storage.se_item.se_it_cost_price
+    - field.storage.se_item.se_it_description
+    - field.storage.se_item.se_it_images
+    - field.storage.se_item.se_it_item_ref
+    - field.storage.se_item.se_it_lost
+    - field.storage.se_item.se_it_manufacturer_ref
+    - field.storage.se_item.se_it_product_type_ref
+    - field.storage.se_item.se_it_sale_category_ref
+    - field.storage.se_item.se_it_sale_date
+    - field.storage.se_item.se_it_sale_price
+    - field.storage.se_item.se_it_sell_price
+    - field.storage.se_item.se_it_serial
+  optional:
+    - field.storage.se_item.se_it_goods_receipt_ref
+    - field.storage.se_item.se_it_invoice_ref
+    - field.storage.se_item.se_it_purchase_order_ref
+    - views.view.item_by_manufacturer
+    - views.view.item_by_product_type
+    - views.view.item_by_sale_category
+    - views.view.se_item_list
+
+# Information added by Drupal.org packaging script on 2021-12-27
+version: '8.x-1.0-beta2'
+project: 'stratoserp'
+datestamp: 1640600731

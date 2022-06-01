@@ -13,9 +13,8 @@ $result=mysqli_query($conn,$q);
 while($row=mysqli_fetch_array($result))
 				{
 					$id=$row['id'];
-					$name=$row['fullname'];
-					$pass=$row['password'];
-					$email=$row['email'];
+					$name=$row['name'];
+					$address=$row['address'];
 					$mob=$row['mobile'];
 				}
 ?>
@@ -32,19 +31,17 @@ while($row=mysqli_fetch_array($result))
 			<tr>
 				<th>ID</th>
 				<th>Fullname</th>
-				<th>Password</th>
-				<th>Email</th>
+				<th>Address</th>
 				<th>Mobile</th>
 				<th>Action</th>
 			</tr>
 
 
 						<tr>
-							<th><?php echo $id ?></th>
-							<th><?php echo $name; ?></th>
-							<th><?php echo $pass; ?></th>
-							<th><?php echo $email; ?></th>
-							<th><?php echo $mob; ?></th>
+							<td><?php echo $id ?></td>
+							<td><?php echo $name; ?></td>
+							<td><?php echo $address; ?></td>
+							<td><?php echo $mob; ?></td>
 							<th><a href="delete.php?id=<?php $row['id']; ?>" style="text-decoration: none; color: red;">DELETE</a></th>
 							<th><a href="edit.php?id=<?php $row['id']; ?>" style="text-decoration: none; color: red;">EDIT</a></th>
 						</tr>

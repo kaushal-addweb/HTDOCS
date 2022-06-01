@@ -1,0 +1,11 @@
+name: 'Ludwig'
+description: 'Provides a manual alternative to Composer.'
+package: Other
+type: module
+core_version_requirement: ^9 || ^10
+configure: ludwig.packages
+
+# Information added by Drupal.org packaging script on 2022-01-08
+version: '2.0.3'
+project: 'ludwig'
+datestamp: 1641658437

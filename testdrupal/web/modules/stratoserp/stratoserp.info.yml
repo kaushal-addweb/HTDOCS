@@ -1,0 +1,27 @@
+name: 'StratosERP - Core'
+description: 'StratosERP module set.'
+type: module
+core_version_requirement: ^8 || ^9
+package: StratosERP
+dependencies:
+  - hook_event_dispatcher:core_event_dispatcher
+  - field_group:field_group
+
+config_devel:
+  install:
+    - core.date_format.se_iso_like_format
+    - system.menu.stratos-erp
+    - taxonomy.vocabulary.se_manufacturer
+    - taxonomy.vocabulary.se_product_type
+    - taxonomy.vocabulary.se_sale_category
+    - taxonomy.vocabulary.se_status
+  optional:
+    - user.role.customer
+    - user.role.staff
+    - user.role.supplier
+
+
+# Information added by Drupal.org packaging script on 2021-12-27
+version: '8.x-1.0-beta2'
+project: 'stratoserp'
+datestamp: 1640600731

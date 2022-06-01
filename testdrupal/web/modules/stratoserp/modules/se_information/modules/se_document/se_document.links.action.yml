@@ -1,0 +1,15 @@
+
+se_information.add_document_form:
+  route_name: 'entity.se_information.add_form'
+  route_parameters:
+    se_information_type: 'se_document'
+  title: 'Add document'
+  appears_on:
+    - 'view.se_information_list.se_information_list'
+
+se_information.add:
+  route_name: 'entity.se_information.add_form'
+  title: 'Add document'
+  class: 'Drupal\stratoserp\LocalAction\SourceIdLocalAction'
+  appears_on:
+    - entity.se_business.canonical

@@ -1,0 +1,79 @@
+<?php
+
+/**
+ * @file
+ * Views Google News module bootstrap file.
+ */
+
+use Drupal\Component\Utility\UrlHelper;
+
+/**
+ * Prepares variables for GoogleNews feed templates.
+ *
+ * Default template: views-view-googlenews.html.twig.
+ *
+ * @param array $variables
+ *   An associative array containing:
+ *   - view: A ViewExecutable object.
+ *   - rows: The raw row data.
+ */
+function template_preprocess_views_view_googlenews(array &$variables) {
+  $config = \Drupal::config('system.site');
+  $name = $config->get('name');
+  $items = $variables['rows'];
+  foreach ($items as &$item) {
+    if (empty($item['#row']['news_publication_name'])) {
+      $item['#row']['news_publication_name'] = $name;
+    }
+    if (empty($item['#row']['news_publication_language'])) {
+      $item['#row']['news_publication_language'] = \Drupal::languageManager()->getDefaultLanguage()->getId();
+    }
+  }
+  $variables['items'] = $items;
+  // During live preview we don't want to output the header since the contents
+  // of the feed are being displayed inside a normal HTML page.
+  if (empty($variables['view']->live_preview)) {
+    $variables['view']->getResponse()->headers->set('Content-Type', 'text/xml; charset=utf-8');
+  }
+}
+
+/**
+ * Prepares variables for views Google News item templates.
+ *
+ * Default template: views-view-row-googlenews.html.twig.
+ *
+ * @param array $variables
+ *   An associative array containing:
+ *   - row: The raw results rows.
+ */
+function template_preprocess_views_view_row_googlenews(array &$variables) {
+  $item = $variables['row'];
+  // Allow item to be altered.
+  \Drupal::moduleHandler()->alter('views_googlenews_item', $item);
+
+  $variables['loc'] = UrlHelper::filterBadProtocol($item['loc']);
+  $variables['name']['#plain_text'] = $item['news_publication_name'];
+  $variables['language']['#plain_text'] = $item['news_publication_language'];
+
+  if (!empty($item['news_access'])) {
+    $variables['access']['#plain_text'] = $item['news_access'];
+  }
+
+  if (!empty($item['news_genres'])) {
+    $variables['genres']['#plain_text'] = $item['news_genres'];
+  }
+
+  if (!empty($item['news_publication_date'])) {
+    $variables['publication_date'] = trim(strip_tags($item['news_publication_date']));
+  }
+
+  $variables['title']['#plain_text'] = strip_tags(($item['news_title']));
+
+  if (!empty($item['news_keywords'])) {
+    $variables['keywords']['#plain_text'] = strip_tags($item['news_keywords']);
+  }
+
+  if (!empty($item['news_stock_tickers'])) {
+    $variables['stock_tickers']['#plain_text'] = strip_tags($item['news_stock_tickers']);
+  }
+}

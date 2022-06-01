@@ -1,0 +1,26 @@
+name: 'StratosERP - Webform integration'
+description: 'Provides the ability to attach forms to tickets.'
+type: module
+core_version_requirement: ^8 || ^9
+package: StratosERP
+dependencies:
+  - stratoserp:se_ticket
+  - stratoserp:se_business
+  - webform:webform
+  - webform_access:webform_access
+  - webform_views:webform_views
+  - webform_templates:webform_templates
+
+config_devel:
+  install:
+    - field.storage.se_ticket.se_ti_forms
+    - webform.webform.we_pc_fresh_install
+    - webform.webform.wi_window_cleaning_complete
+    - webform.webform.wi_window_cleaning_start
+  optional:
+    - views.view.wi_submission_list
+
+# Information added by Drupal.org packaging script on 2021-12-27
+version: '8.x-1.0-beta2'
+project: 'stratoserp'
+datestamp: 1640600731

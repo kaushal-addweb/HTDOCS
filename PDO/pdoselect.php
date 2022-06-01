@@ -1,7 +1,7 @@
 <?php
 
 try {
-    $pdo = new PDO("mysql:host=localhost;dbname=practise", "root", "");
+    $pdo = new PDO("mysql:host=localhost;dbname=SampleDB", "root", "");
 
     $sql = 'SELECT * FROM student';
 
@@ -9,10 +9,10 @@ try {
     $q->setFetchMode(PDO::FETCH_ASSOC);
 	while($row=$q->fetch())
 	{
-		//echo $row['id']." ".$row["name"]." ".$row['address']." ".$row['mobile']." "."<br>";
 		echo "{$row['id']} - {$row['name']} - {$row['address']} - {$row['mobile']} <br>";
 	}
-} catch (PDOException $e) {
+} 
+catch (PDOException $e) {
     die("Could not connect to the database $dbname :" . $e->getMessage());
 }
 ?>

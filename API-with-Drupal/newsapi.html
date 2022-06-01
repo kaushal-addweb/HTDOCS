@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="news_one">
+
+    </div>
+    <script type="text/javascript">
+        fetch('https://newsapi.org/v2/top-headlines?country=in&sortBy=publishedAt&apiKey=7a4e04b646c34c1bb737763054c7b218')
+            .then(res => res.json())
+            .then(res => {
+
+                console.log(res)
+                console.log(res.articles)
+
+                var abc = res.articles.length
+                    //console.log(abc)
+                var n1 = document.getElementById('news_one')
+                let text = " "
+                for (i = 0; i < abc; i++) {
+                    text += `<h5> ${res.articles[i].title}</h5>` +
+                        `<img src=${res.articles[i].urlToImage} alt=NoImage height=150px width=150px/>` + "<br/>"
+                }
+                n1.innerHTML = text;
+            })
+            .catch(err => {
+                console.log(err)
+            })
+    </script>
+</body>
+
+</html>

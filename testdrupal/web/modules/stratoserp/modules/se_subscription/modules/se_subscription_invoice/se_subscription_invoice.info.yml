@@ -1,0 +1,24 @@
+name: 'StratosERP - Subscription integration - invoice'
+description: 'Automatically create invoices from subscriptions.'
+type: module
+core_version_requirement: ^8 || ^9
+package: StratosERP
+dependencies:
+  - stratoserp:stratoserp
+  - stratoserp:se_subscription
+  - stratoserp:se_invoice
+
+config_devel:
+  install:
+    - core.entity_form_display.se_subscription.se_phone_system.default
+    - core.entity_view_display.se_subscription.se_phone_system.default
+    - field.field.se_subscription.se_phone_system.se_bu_ref
+    - field.field.se_subscription.se_phone_system.se_su_lines
+    - field.field.se_subscription.se_phone_system.se_su_period
+    - field.field.se_subscription.se_phone_system.se_su_ref
+    - field.field.se_subscription.se_phone_system.se_su_total
+
+# Information added by Drupal.org packaging script on 2021-12-27
+version: '8.x-1.0-beta2'
+project: 'stratoserp'
+datestamp: 1640600731

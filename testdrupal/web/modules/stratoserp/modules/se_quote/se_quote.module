@@ -1,0 +1,22 @@
+<?php
+
+declare(strict_types=1);
+
+/**
+ * @file
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function se_quote_theme() {
+  $theme = [];
+
+  $theme['se_quote'] = [
+    'render element' => 'elements',
+    'file' => 'se_quote.page.inc',
+    'template' => 'se_quote',
+  ];
+
+  return $theme;
+}

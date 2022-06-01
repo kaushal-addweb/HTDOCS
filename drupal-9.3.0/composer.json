@@ -21,6 +21,15 @@
         "drupal/core-recommended": "^9.3",
         "drupal/core-vendor-hardening": "^9.3",
         "drupal/devel": "^4.1",
+        "drupal/dxpr_theme": "^1.2",
+        "drupal/examples": "^3.0",
+        "drupal/flexslider": "^2.0",
+        "drupal/libraries": "^3.0@beta",
+        "drupal/mailsystem": "^4.3",
+        "drupal/phpmailer_smtp": "^2.0",
+        "drupal/simple_gmap": "^3.0",
+        "drupal/swiftmailer": "^2.2",
+        "drupal/views_bulk_operations": "^4.1",
         "drush/drush": "^11.0"
     },
     "conflict": {

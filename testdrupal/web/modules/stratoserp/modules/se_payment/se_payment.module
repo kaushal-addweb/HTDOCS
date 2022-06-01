@@ -1,0 +1,22 @@
+<?php
+
+declare(strict_types=1);
+
+/**
+ * @file
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function se_payment_theme() {
+  $theme = [];
+
+  $theme['se_payment'] = [
+    'render element' => 'elements',
+    'file' => 'se_payment.page.inc',
+    'template' => 'se_payment',
+  ];
+
+  return $theme;
+}

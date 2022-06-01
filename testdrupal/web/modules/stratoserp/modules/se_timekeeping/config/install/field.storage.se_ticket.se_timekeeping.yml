@@ -1,0 +1,19 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - comment
+    - se_ticket
+id: se_ticket.se_timekeeping
+field_name: se_timekeeping
+entity_type: se_ticket
+type: comment
+settings:
+  comment_type: se_timekeeping
+module: comment
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

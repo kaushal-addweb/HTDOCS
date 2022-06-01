@@ -1,0 +1,15 @@
+
+entity.se_contact.add_form:
+  route_name: entity.se_contact.add_form
+  title: 'Add contact'
+  appears_on:
+    - entity.se_contact.collection
+    - 'view.se_contact_list.se_contact_list'
+    - 'view.se_contact_eva.se_contact_eva'
+
+se_contact.add:
+  route_name: se_contact.add
+  title: 'Add contact'
+  class: 'Drupal\stratoserp\LocalAction\SourceIdLocalAction'
+  appears_on:
+    - entity.se_business.canonical

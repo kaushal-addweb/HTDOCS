@@ -5,7 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '4f135e688a2691d9c33f3fadd8991fa283fbfa13',
+        'reference' => 'ff3984b0d1feb63b36fabe192586f64419a4a12f',
         'name' => 'drupal/legacy-project',
         'dev' => true,
     ),
@@ -222,6 +222,15 @@
             'replaced' => array(
                 0 => '9.3.6',
             ),
+        ),
+        'drupal/admin_toolbar' => array(
+            'pretty_version' => '3.1.0',
+            'version' => '3.1.0.0',
+            'type' => 'drupal-module',
+            'install_path' => __DIR__ . '/../../modules/contrib/admin_toolbar',
+            'aliases' => array(),
+            'reference' => '3.1.0',
+            'dev_requirement' => false,
         ),
         'drupal/aggregator' => array(
             'dev_requirement' => false,
@@ -595,6 +604,24 @@
                 0 => '9.3.6',
             ),
         ),
+        'drupal/feeds' => array(
+            'pretty_version' => '3.0.0-beta1',
+            'version' => '3.0.0.0-beta1',
+            'type' => 'drupal-module',
+            'install_path' => __DIR__ . '/../../modules/contrib/feeds',
+            'aliases' => array(),
+            'reference' => '8.x-3.0-beta1',
+            'dev_requirement' => false,
+        ),
+        'drupal/feeds_ex' => array(
+            'pretty_version' => '1.0.0-beta1',
+            'version' => '1.0.0.0-beta1',
+            'type' => 'drupal-module',
+            'install_path' => __DIR__ . '/../../modules/contrib/feeds_ex',
+            'aliases' => array(),
+            'reference' => '8.x-1.0-beta1',
+            'dev_requirement' => false,
+        ),
         'drupal/field' => array(
             'dev_requirement' => false,
             'replaced' => array(
@@ -624,6 +651,15 @@
             'replaced' => array(
                 0 => '9.3.6',
             ),
+        ),
+        'drupal/flexslider' => array(
+            'pretty_version' => '2.0.0',
+            'version' => '2.0.0.0',
+            'type' => 'drupal-module',
+            'install_path' => __DIR__ . '/../../modules/contrib/flexslider',
+            'aliases' => array(),
+            'reference' => '8.x-2.0',
+            'dev_requirement' => false,
         ),
         'drupal/forum' => array(
             'dev_requirement' => false,
@@ -697,7 +733,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '4f135e688a2691d9c33f3fadd8991fa283fbfa13',
+            'reference' => 'ff3984b0d1feb63b36fabe192586f64419a4a12f',
             'dev_requirement' => false,
         ),
         'drupal/link' => array(
@@ -801,6 +837,15 @@
             'replaced' => array(
                 0 => '9.3.6',
             ),
+        ),
+        'drupal/phpmailer_smtp' => array(
+            'pretty_version' => '2.0.4',
+            'version' => '2.0.4.0',
+            'type' => 'drupal-module',
+            'install_path' => __DIR__ . '/../../modules/contrib/phpmailer_smtp',
+            'aliases' => array(),
+            'reference' => '2.0.4',
+            'dev_requirement' => false,
         ),
         'drupal/quickedit' => array(
             'dev_requirement' => false,
@@ -940,6 +985,33 @@
                 0 => '9.3.6',
             ),
         ),
+        'drupal/views_bulk_operations' => array(
+            'pretty_version' => '4.1.2',
+            'version' => '4.1.2.0',
+            'type' => 'drupal-module',
+            'install_path' => __DIR__ . '/../../modules/contrib/views_bulk_operations',
+            'aliases' => array(),
+            'reference' => '4.1.2',
+            'dev_requirement' => false,
+        ),
+        'drupal/views_googlenews' => array(
+            'pretty_version' => '1.0.0',
+            'version' => '1.0.0.0',
+            'type' => 'drupal-module',
+            'install_path' => __DIR__ . '/../../modules/contrib/views_googlenews',
+            'aliases' => array(),
+            'reference' => '8.x-1.0',
+            'dev_requirement' => false,
+        ),
+        'drupal/views_remote_data' => array(
+            'pretty_version' => '1.0.1',
+            'version' => '1.0.1.0',
+            'type' => 'drupal-module',
+            'install_path' => __DIR__ . '/../../modules/contrib/views_remote_data',
+            'aliases' => array(),
+            'reference' => '1.0.1',
+            'dev_requirement' => false,
+        ),
         'drupal/views_ui' => array(
             'dev_requirement' => false,
             'replaced' => array(
@@ -984,6 +1056,12 @@
             'aliases' => array(),
             'reference' => '196bacc76e7a72a63d0e1220926dbb190272db97',
             'dev_requirement' => true,
+        ),
+        'flow/jsonpath' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '*',
+            ),
         ),
         'grasmash/expander' => array(
             'pretty_version' => '1.0.0',
@@ -1075,6 +1153,15 @@
             'reference' => 'f640ac1bdddff06ea333a920c95bbad8872429ab',
             'dev_requirement' => false,
         ),
+        'mtdowling/jmespath.php' => array(
+            'pretty_version' => '2.6.1',
+            'version' => '2.6.1.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../mtdowling/jmespath.php',
+            'aliases' => array(),
+            'reference' => '9b87907a81b87bc76d19a7fb2d61e61486ee9edb',
+            'dev_requirement' => false,
+        ),
         'nikic/php-parser' => array(
             'pretty_version' => 'v4.13.2',
             'version' => '4.13.2.0',
@@ -1124,6 +1211,15 @@
             'install_path' => __DIR__ . '/../pear/pear_exception',
             'aliases' => array(),
             'reference' => 'b14fbe2ddb0b9f94f5b24cf08783d599f776fff0',
+            'dev_requirement' => false,
+        ),
+        'phpmailer/phpmailer' => array(
+            'pretty_version' => 'v6.6.0',
+            'version' => '6.6.0.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../phpmailer/phpmailer',
+            'aliases' => array(),
+            'reference' => 'e43bac82edc26ca04b36143a48bde1c051cfd5b1',
             'dev_requirement' => false,
         ),
         'psr/cache' => array(
@@ -1211,6 +1307,15 @@
             'reference' => '7f7da640d68b9c9fec819caae7c744a213df6514',
             'dev_requirement' => true,
         ),
+        'querypath/querypath' => array(
+            'pretty_version' => '3.0.5',
+            'version' => '3.0.5.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../querypath/querypath',
+            'aliases' => array(),
+            'reference' => '6b8e2395fac61fac25bbe962f94def556cb85f7d',
+            'dev_requirement' => false,
+        ),
         'ralouphie/getallheaders' => array(
             'pretty_version' => '3.0.3',
             'version' => '3.0.3.0',
@@ -1237,6 +1342,15 @@
             'replaced' => array(
                 0 => '*',
             ),
+        ),
+        'softcreatr/jsonpath' => array(
+            'pretty_version' => '0.7.5',
+            'version' => '0.7.5.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../softcreatr/jsonpath',
+            'aliases' => array(),
+            'reference' => '008569bf80aa3584834f7890781576bc7b65afa7',
+            'dev_requirement' => false,
         ),
         'stack/builder' => array(
             'pretty_version' => 'v1.0.6',

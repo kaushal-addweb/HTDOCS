@@ -1,0 +1,36 @@
+
+administer item types:
+  title: 'Administer Item types'
+  description: 'Allow to define the existing Item types and their Fields'
+
+administer item settings:
+  title: 'Administer Item settings'
+  description: 'Administer Item settings'
+
+add item entities:
+  title: 'Create new Item entities'
+
+administer item entities:
+  title: 'Administer Item entities'
+  description: 'Allow to access the administration form to configure Item entities.'
+  restrict access: true
+
+delete item entities:
+  title: 'Delete Item entities'
+
+edit item entities:
+  title: 'Edit Item entities'
+
+view item entities:
+  title: 'View Item entities'
+
+view all item revisions:
+  title: 'View all Item revisions'
+
+revert all item revisions:
+  title: 'Revert all Item revisions'
+  description: 'Role requires permission <em>view Item revisions</em> and <em>edit rights</em> for item entities in question or <em>administer item entities</em>.'
+
+delete all item revisions:
+  title: 'Delete all revisions'
+  description: 'Role requires permission to <em>view Item revisions</em> and <em>delete rights</em> for item entities in question or <em>administer item entities</em>.'

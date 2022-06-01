@@ -1,0 +1,13 @@
+
+se_goods_receipt.add:
+  path: '/gr/add/{source}'
+  defaults:
+    _title: 'Receive goods'
+    _controller: '\Drupal\se_goods_receipt\Controller\GoodsReceiptController::fromPurchaseOrder'
+    type: se_goods_receipt
+  requirements:
+    _permission: 'add goods receipt entities'
+  options:
+    parameters:
+      source:
+        type: entity:se_goods_receipt

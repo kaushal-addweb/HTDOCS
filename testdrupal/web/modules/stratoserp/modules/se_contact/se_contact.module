@@ -1,0 +1,22 @@
+<?php
+
+declare(strict_types=1);
+
+/**
+ * @file
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function se_contact_theme() {
+  $theme = [];
+
+  $theme['se_contact'] = [
+    'render element' => 'elements',
+    'file' => 'se_contact.page.inc',
+    'template' => 'se_contact',
+  ];
+
+  return $theme;
+}

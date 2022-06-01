@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather</title>
+
+</head>
+
+<body>
+    <div id="weather">
+
+    </div>
+    <script type="text/javascript">
+        fetch('https://api.openweathermap.org/data/2.5/weather?q=Jaipur&appid=807eb64a474d194534d90c09463d5cdf&units=metric')
+            .then(res => res.json())
+            .then(res => {
+
+                //console.log(res)
+                var weath = "";
+                var n1 = document.getElementById("weather");
+                var img = "<img src='http://openweathermap.org/img/w/" + res.weather[0].icon + ".png' />";
+                console.log(img);
+                weath += img + "<br/>" +
+                    "Place: " + res.name + "<br>" +
+                    "Weather: " + res.weather[0].main + "<br>" +
+                    "Temperature: " + res.main.temp + "<br>" +
+                    "Minimum Temperature: " + res.main.temp_min + "<br>" +
+                    "Maximum Temperature: " + res.main.temp_max + "<br>" +
+                    "Humidity: " + res.main.humidity + "<br>" +
+                    "Pressure: " + res.main.pressure + "<br>";
+
+                n1.innerHTML = weath;
+            })
+            .catch(err => {
+                console.log(err)
+            })
+    </script>
+</body>
+
+</html>

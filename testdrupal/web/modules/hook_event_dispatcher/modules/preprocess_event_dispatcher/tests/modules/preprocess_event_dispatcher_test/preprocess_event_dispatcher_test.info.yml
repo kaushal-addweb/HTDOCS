@@ -1,0 +1,10 @@
+name: Preprocess Event Dispatcher test
+type: module
+description: Support module for preprocess_event_dispatcher testing
+package: Hook events
+core_version_requirement: ^9.1
+
+# Information added by Drupal.org packaging script on 2022-03-08
+version: '3.1.0'
+project: 'hook_event_dispatcher'
+datestamp: 1646747331

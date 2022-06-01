@@ -1,0 +1,25 @@
+name: 'StratosERP - Subscription type - Domain name'
+description: 'Domain name subscription entity type.'
+type: module
+core_version_requirement: ^8 || ^9
+package: StratosERP
+dependencies:
+  - stratoserp:se_subscription
+
+config_devel:
+  install:
+    - core.entity_form_display.se_subscription.se_domain_name.default
+    - core.entity_view_display.se_subscription.se_domain_name.default
+    - field.field.se_subscription.se_domain_name.se_bu_ref
+    - field.field.se_subscription.se_domain_name.se_su_lines
+    - field.field.se_subscription.se_domain_name.se_su_management_link
+    - field.field.se_subscription.se_domain_name.se_su_next_due
+    - field.field.se_subscription.se_domain_name.se_su_period
+    - field.field.se_subscription.se_domain_name.se_su_ref
+    - field.field.se_subscription.se_domain_name.se_su_total
+    - field.field.se_subscription.se_domain_name.se_su_use_bu_due
+
+# Information added by Drupal.org packaging script on 2021-12-27
+version: '8.x-1.0-beta2'
+project: 'stratoserp'
+datestamp: 1640600731

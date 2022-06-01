@@ -1,0 +1,21 @@
+name: 'StratosERP - Xero integration'
+description: 'Provides an integration layer between StratosERP and Xero.'
+type: module
+core_version_requirement: ^8 || ^9
+package: StratosERP
+dependencies:
+  - hook_event_dispatcher:hook_event_dispatcher
+  - stratoserp:se_contact
+  - stratoserp:se_business
+  - stratoserp:se_invoice
+  - stratoserp:stratoserp
+  - xero:xero
+
+config_devel:
+  install:
+    - se_xero.settings
+
+# Information added by Drupal.org packaging script on 2021-12-27
+version: '8.x-1.0-beta2'
+project: 'stratoserp'
+datestamp: 1640600731

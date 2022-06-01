@@ -1,0 +1,26 @@
+name: 'StratosERP - Basic document'
+description: 'Provides a basic document entity type and related configuration.'
+type: module
+core_version_requirement: ^8 || ^9
+package: StratosERP
+dependencies:
+  - stratoserp:se_information
+
+config_devel:
+  install:
+    - core.entity_form_display.se_information.se_document.default
+    - core.entity_view_display.se_information.se_document.default
+    - field.field.se_information.se_document.se_bu_ref
+    - field.field.se_information.se_document.se_if_attachments
+    - field.field.se_information.se_document.se_if_body
+    - field.field.se_information.se_document.se_if_comments
+    - field.field.se_information.se_document.se_if_images
+    - se_information.se_information_type.se_document
+  optional:
+    - views.view.se_document_list
+    - views.view.se_document_eva
+
+# Information added by Drupal.org packaging script on 2021-12-27
+version: '8.x-1.0-beta2'
+project: 'stratoserp'
+datestamp: 1640600731

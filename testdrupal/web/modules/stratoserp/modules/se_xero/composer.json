@@ -1,0 +1,18 @@
+{
+  "name": "se_xero",
+  "description": "This extension provides new commands for Drush.",
+  "type": "drupal-drush",
+  "authors": [
+    { "name": "Simon Lindsay", "role": "Developer" }
+  ],
+  "require": {
+    "php": ">=7.2"
+  },
+  "extra": {
+    "drush": {
+      "services": {
+        "drush.services.yml": "^9"
+      }
+    }
+  }
+}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top 250 Movies</title>
+
+</head>
+
+<body>
+    <div id="movies">
+
+    </div>
+    <script type="text/javascript">
+        fetch('https://imdb-api.com/en/API/Top250Movies/k_2fuyz817')
+            .then(res => res.json())
+            .then(res => {
+
+                console.log(res)
+                console.log(res.items)
+
+                var abc = res.items.length
+                    //console.log(abc)
+                var n1 = document.getElementById('movies')
+                let text = " "
+                for (i = 0; i < abc; i++) {
+                    text += `<h5> Rank: ${res.items[i].rank}</h5>` +
+                        `<h5> Title: ${res.items[i].fullTitle}</h5>` +
+                        `<h5> Year: ${res.items[i].year}</h5>` +
+                        `<h5> IMDB Rating: ${res.items[i].imDbRating}</h5><br/>` +
+                        `<img src=${res.items[i].image} height=150px width=150px/>` + "<br/><br/>"
+
+                }
+                n1.innerHTML = text;
+            })
+            .catch(err => {
+                console.log(err)
+            })
+    </script>
+</body>
+
+</html>

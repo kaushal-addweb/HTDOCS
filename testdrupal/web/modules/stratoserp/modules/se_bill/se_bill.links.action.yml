@@ -1,0 +1,7 @@
+
+entity.se_bill.add_form:
+  route_name: entity.se_bill.add_form
+  title: 'Add Bill'
+  appears_on:
+    - entity.se_bill.collection
+    - 'view.se_bill_list.se_bill_list'

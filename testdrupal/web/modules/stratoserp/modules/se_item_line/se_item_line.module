@@ -1,0 +1,45 @@
+<?php
+
+/**
+ * @file
+ * Custom functions for item manipulation.
+ */
+
+use Drupal\stratoserp\Constants;
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_theme().
+ */
+function se_item_line_theme(): array {
+  return [
+    'se_item_line_widget' => [
+      'variables' => [
+        'target_type' => '',
+        'target_id' => '',
+        'quantity' => '',
+        'price' => '',
+        'serial' => '',
+        'completed_date' => '',
+        'note' => '',
+      ],
+    ],
+
+  ];
+}
+
+/**
+ * Hide a text_format part in an element.
+ *
+ * @param array $element
+ *   The element to hide.
+ *
+ * @return array
+ *   The hidden element.
+ */
+function se_item_line_hide_text_format(array $element): array {
+  if (!empty($element['format'])) {
+    $element['format']['#attributes']['class'][] = 'invisible';
+  }
+  return $element;
+}

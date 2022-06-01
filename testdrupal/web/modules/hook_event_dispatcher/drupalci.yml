@@ -1,0 +1,28 @@
+build:
+  assessment:
+    validate_codebase:
+      phplint:
+      container_composer:
+      # csslint:
+      # eslint:
+      phpcs:
+        sniff-all-files: true
+        halt-on-fail: true
+      container_command:
+        commands:
+          - '${SOURCE_DIR}/vendor/bin/phpmd --suffixes php,module,inc,install,profile,theme ${PROJECT_DIR} text ${PROJECT_DIR}/phpmd.xml'
+          - '${SOURCE_DIR}/vendor/bin/phpstan analyse --no-progress -c ${PROJECT_DIR}/phpstan.neon.dist ${PROJECT_DIR}'
+        halt-on-fail: true
+    testing:
+      # run_tests.standard:
+        # types: 'Simpletest,PHPUnit-Unit,PHPUnit-Kernel,PHPUnit-Functional'
+      # run_tests.js:
+        # concurrency: 1
+        # types: 'PHPUnit-FunctionalJavascript'
+      # nightwatchjs:
+      run_tests.phpunit:
+        types: 'PHPUnit-Unit'
+        suppress-deprecations: false
+      run_tests.kernel:
+        types: 'PHPUnit-Kernel'
+        suppress-deprecations: false

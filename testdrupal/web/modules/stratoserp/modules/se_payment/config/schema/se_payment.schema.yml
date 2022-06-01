@@ -1,0 +1,7 @@
+se_payment.settings:
+  type: mapping
+  label: 'Payment settings'
+  mapping:
+    default_payment_term:
+      type: string
+      label: 'Taxonomy term for the default payment type.'

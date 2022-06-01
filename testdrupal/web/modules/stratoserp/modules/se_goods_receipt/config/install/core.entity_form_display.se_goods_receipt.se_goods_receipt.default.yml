@@ -1,0 +1,139 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.se_goods_receipt.se_goods_receipt.se_bu_ref
+    - field.field.se_goods_receipt.se_goods_receipt.se_co_ref
+    - field.field.se_goods_receipt.se_goods_receipt.se_gr_lines
+    - field.field.se_goods_receipt.se_goods_receipt.se_gr_purchase_order_ref
+    - field.field.se_goods_receipt.se_goods_receipt.se_gr_total
+    - field.field.se_goods_receipt.se_goods_receipt.se_status_ref
+    - field.field.se_goods_receipt.se_goods_receipt.se_su_ref
+  module:
+    - field_layout
+    - layout_discovery
+    - se_accounting
+    - se_goods_receipt
+    - se_item_line
+third_party_settings:
+  field_layout:
+    id: layout_twocol
+    settings:
+      label: ''
+id: se_goods_receipt.se_goods_receipt.default
+targetEntityType: se_goods_receipt
+bundle: se_goods_receipt
+mode: default
+content:
+  name:
+    type: string_textfield
+    weight: 0
+    region: top
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  revision_log_message:
+    type: string_textarea
+    weight: 5
+    settings:
+      rows: 4
+      placeholder: ''
+    region: first
+    third_party_settings: {  }
+  se_body:
+    type: text_textarea
+    weight: 8
+    settings:
+      rows: 5
+      summary_rows: 3
+      placeholder: ''
+    third_party_settings: {  }
+    region: bottom
+  se_bu_ref:
+    weight: 1
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+      match_limit: 10
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: first
+  se_co_ref:
+    weight: 2
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+      match_limit: 10
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: first
+  se_comments:
+    weight: 9
+    settings: {  }
+    third_party_settings: {  }
+    type: comment_default
+    region: bottom
+  se_gr_lines:
+    weight: 7
+    settings:
+      match_operator: CONTAINS
+      size: '40'
+      placeholder: ''
+      match_limit: 10
+    third_party_settings: {  }
+    type: se_item_line_widget
+    region: bottom
+  se_gr_purchase_order_ref:
+    weight: 3
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+      match_limit: 10
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: first
+  se_gr_total:
+    type: se_currency_widget
+    weight: 8
+    region: bottom
+    settings: {  }
+    third_party_settings: {  }
+  se_status_ref:
+    type: options_select
+    weight: 6
+    region: second
+    settings: {  }
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: top
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  user_id:
+    type: entity_reference_autocomplete
+    weight: 4
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+      match_limit: 10
+    region: first
+    third_party_settings: {  }
+hidden:
+  created: true
+  extra_field_actions_field: true
+  extra_field_meta_field: true
+  extra_field_revision_field: true
+  path: true
+  promote: true
+  se_su_ref: true
+  status: true
+  sticky: true
+  uid: true

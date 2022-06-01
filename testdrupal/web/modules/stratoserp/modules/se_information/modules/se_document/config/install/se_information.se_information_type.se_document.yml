@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+id: se_document
+label: Document
+locked: null
+pattern: null
