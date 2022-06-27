@@ -1,0 +1,14 @@
+.toolbar-icon-ec-store:before {
+    width: 20px;
+    position: absolute;
+    left: 0.6667em;
+    background-image: url(../images/ecwid-logo.svg); 
+}
+
+header.content-header {
+    display: none;
+}
+
+.toolbar-tray.toolbar-tray-horizontal .ec-store-toolbar-menu .reconnect {
+    float: right;
+}

@@ -1,0 +1,16 @@
+{
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://packages.drupal.org/8"
+    }
+  ],
+  "name": "drupal/breeze",
+  "type": "drupal-theme",
+  "description": "A Drupal 8 Theme Based on OSTraining's Breeze Design, Breeze is fully responsive and uses the Bootstrap framework.",
+  "homepage": "http://drupal.org/project/breeze",
+  "license": "GPL-2.0",
+  "require": {
+    "drupal/bootstrap": "^3.2"
+  }
+}

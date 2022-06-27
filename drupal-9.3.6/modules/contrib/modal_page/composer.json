@@ -1,0 +1,19 @@
+{
+    "name": "drupal/modal_page",
+    "description": "Create modal for specifics pages.",
+    "type": "drupal-module",
+    "homepage": "https://www.drupal.org/project/modal_page",
+    "authors": [
+        {
+            "name": "See contributors",
+            "homepage": "https://www.drupal.org/node/2841111/committers",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "issues": "https://www.drupal.org/project/issues/modal_page",
+        "irc": "irc://irc.freenode.org/drupal-contribute",
+        "source": "https://git.drupalcode.org/project/modal_page"
+    },
+    "license": "GPL-2.0-or-later"
+}

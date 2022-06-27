@@ -1,0 +1,18 @@
+connect:
+  css:
+    layout:
+      css/connect.css: {}
+
+control-panel:  
+  css:
+    layout:
+      css/control-panel.css: {}
+  js:
+      js/control-panel.js: {}
+      
+ec-store-admin:
+  css:
+    theme:
+      css/ec-store.css: {}
+  js:
+      js/admin-tray.js: {}

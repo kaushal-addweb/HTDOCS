@@ -5,7 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => 'ff3984b0d1feb63b36fabe192586f64419a4a12f',
+        'reference' => '77bbfc73ff57b61a6f70489571e9b61605df10ef',
         'name' => 'drupal/legacy-project',
         'dev' => true,
     ),
@@ -286,11 +286,38 @@
                 0 => '9.3.6',
             ),
         ),
+        'drupal/bootstrap' => array(
+            'pretty_version' => '3.25.0',
+            'version' => '3.25.0.0',
+            'type' => 'drupal-theme',
+            'install_path' => __DIR__ . '/../../themes/contrib/bootstrap',
+            'aliases' => array(),
+            'reference' => '8.x-3.25',
+            'dev_requirement' => false,
+        ),
         'drupal/breakpoint' => array(
             'dev_requirement' => false,
             'replaced' => array(
                 0 => '9.3.6',
             ),
+        ),
+        'drupal/breeze' => array(
+            'pretty_version' => '3.0.0',
+            'version' => '3.0.0.0',
+            'type' => 'drupal-theme',
+            'install_path' => __DIR__ . '/../../themes/contrib/breeze',
+            'aliases' => array(),
+            'reference' => '3.0.0',
+            'dev_requirement' => false,
+        ),
+        'drupal/charts' => array(
+            'pretty_version' => '5.0.1',
+            'version' => '5.0.1.0',
+            'type' => 'drupal-module',
+            'install_path' => __DIR__ . '/../../modules/contrib/charts',
+            'aliases' => array(),
+            'reference' => '5.0.1',
+            'dev_requirement' => false,
         ),
         'drupal/ckeditor' => array(
             'dev_requirement' => false,
@@ -559,6 +586,15 @@
                 0 => '9.3.6',
             ),
         ),
+        'drupal/csv_serialization' => array(
+            'pretty_version' => '2.1.0',
+            'version' => '2.1.0.0',
+            'type' => 'drupal-module',
+            'install_path' => __DIR__ . '/../../modules/contrib/csv_serialization',
+            'aliases' => array(),
+            'reference' => '8.x-2.1',
+            'dev_requirement' => false,
+        ),
         'drupal/datetime' => array(
             'dev_requirement' => false,
             'replaced' => array(
@@ -592,6 +628,15 @@
                 0 => '9.3.6',
             ),
         ),
+        'drupal/ecwid_shopping_cart' => array(
+            'pretty_version' => '3.3.0',
+            'version' => '3.3.0.0',
+            'type' => 'drupal-module',
+            'install_path' => __DIR__ . '/../../modules/contrib/ecwid_shopping_cart',
+            'aliases' => array(),
+            'reference' => '8.x-3.3',
+            'dev_requirement' => false,
+        ),
         'drupal/editor' => array(
             'dev_requirement' => false,
             'replaced' => array(
@@ -603,6 +648,15 @@
             'replaced' => array(
                 0 => '9.3.6',
             ),
+        ),
+        'drupal/entity_reference_revisions' => array(
+            'pretty_version' => '1.9.0',
+            'version' => '1.9.0.0',
+            'type' => 'drupal-module',
+            'install_path' => __DIR__ . '/../../modules/contrib/entity_reference_revisions',
+            'aliases' => array(),
+            'reference' => '8.x-1.9',
+            'dev_requirement' => false,
         ),
         'drupal/feeds' => array(
             'pretty_version' => '3.0.0-beta1',
@@ -666,6 +720,24 @@
             'replaced' => array(
                 0 => '9.3.6',
             ),
+        ),
+        'drupal/fullcalendar_view' => array(
+            'pretty_version' => '5.1.5',
+            'version' => '5.1.5.0',
+            'type' => 'drupal-module',
+            'install_path' => __DIR__ . '/../../modules/contrib/fullcalendar_view',
+            'aliases' => array(),
+            'reference' => '5.1.5',
+            'dev_requirement' => false,
+        ),
+        'drupal/geofield' => array(
+            'pretty_version' => '1.39.0',
+            'version' => '1.39.0.0',
+            'type' => 'drupal-module',
+            'install_path' => __DIR__ . '/../../modules/contrib/geofield',
+            'aliases' => array(),
+            'reference' => '8.x-1.39',
+            'dev_requirement' => false,
         ),
         'drupal/hal' => array(
             'dev_requirement' => false,
@@ -733,7 +805,16 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => 'ff3984b0d1feb63b36fabe192586f64419a4a12f',
+            'reference' => '77bbfc73ff57b61a6f70489571e9b61605df10ef',
+            'dev_requirement' => false,
+        ),
+        'drupal/libraries' => array(
+            'pretty_version' => '3.0.0-beta2',
+            'version' => '3.0.0.0-beta2',
+            'type' => 'drupal-module',
+            'install_path' => __DIR__ . '/../../modules/contrib/libraries',
+            'aliases' => array(),
+            'reference' => '8.x-3.0-beta2',
             'dev_requirement' => false,
         ),
         'drupal/link' => array(
@@ -802,6 +883,15 @@
                 0 => '9.3.6',
             ),
         ),
+        'drupal/modal_page' => array(
+            'pretty_version' => '4.1.14',
+            'version' => '4.1.14.0',
+            'type' => 'drupal-module',
+            'install_path' => __DIR__ . '/../../modules/contrib/modal_page',
+            'aliases' => array(),
+            'reference' => '4.1.14',
+            'dev_requirement' => false,
+        ),
         'drupal/node' => array(
             'dev_requirement' => false,
             'replaced' => array(
@@ -825,6 +915,15 @@
             'replaced' => array(
                 0 => '9.3.6',
             ),
+        ),
+        'drupal/paragraphs' => array(
+            'pretty_version' => '1.14.0',
+            'version' => '1.14.0.0',
+            'type' => 'drupal-module',
+            'install_path' => __DIR__ . '/../../modules/contrib/paragraphs',
+            'aliases' => array(),
+            'reference' => '8.x-1.14',
+            'dev_requirement' => false,
         ),
         'drupal/path' => array(
             'dev_requirement' => false,
@@ -853,6 +952,15 @@
                 0 => '9.3.6',
             ),
         ),
+        'drupal/radix' => array(
+            'pretty_version' => '4.11.0',
+            'version' => '4.11.0.0',
+            'type' => 'drupal-theme',
+            'install_path' => __DIR__ . '/../../themes/contrib/radix',
+            'aliases' => array(),
+            'reference' => '8.x-4.11',
+            'dev_requirement' => false,
+        ),
         'drupal/rdf' => array(
             'dev_requirement' => false,
             'replaced' => array(
@@ -870,6 +978,15 @@
             'replaced' => array(
                 0 => '9.3.6',
             ),
+        ),
+        'drupal/scheduler' => array(
+            'pretty_version' => '1.4.0',
+            'version' => '1.4.0.0',
+            'type' => 'drupal-module',
+            'install_path' => __DIR__ . '/../../modules/contrib/scheduler',
+            'aliases' => array(),
+            'reference' => '8.x-1.4',
+            'dev_requirement' => false,
         ),
         'drupal/search' => array(
             'dev_requirement' => false,
@@ -900,6 +1017,15 @@
             'replaced' => array(
                 0 => '9.3.6',
             ),
+        ),
+        'drupal/simple_popup_views' => array(
+            'pretty_version' => '1.1.0',
+            'version' => '1.1.0.0',
+            'type' => 'drupal-module',
+            'install_path' => __DIR__ . '/../../modules/contrib/simple_popup_views',
+            'aliases' => array(),
+            'reference' => '8.x-1.1',
+            'dev_requirement' => false,
         ),
         'drupal/standard' => array(
             'dev_requirement' => false,
@@ -949,6 +1075,15 @@
                 0 => '9.3.6',
             ),
         ),
+        'drupal/token' => array(
+            'pretty_version' => '1.10.0',
+            'version' => '1.10.0.0',
+            'type' => 'drupal-module',
+            'install_path' => __DIR__ . '/../../modules/contrib/token',
+            'aliases' => array(),
+            'reference' => '8.x-1.10',
+            'dev_requirement' => false,
+        ),
         'drupal/toolbar' => array(
             'dev_requirement' => false,
             'replaced' => array(
@@ -985,6 +1120,15 @@
                 0 => '9.3.6',
             ),
         ),
+        'drupal/views_add_button' => array(
+            'pretty_version' => '1.8.0',
+            'version' => '1.8.0.0',
+            'type' => 'drupal-module',
+            'install_path' => __DIR__ . '/../../modules/contrib/views_add_button',
+            'aliases' => array(),
+            'reference' => '8.x-1.8',
+            'dev_requirement' => false,
+        ),
         'drupal/views_bulk_operations' => array(
             'pretty_version' => '4.1.2',
             'version' => '4.1.2.0',
@@ -992,6 +1136,15 @@
             'install_path' => __DIR__ . '/../../modules/contrib/views_bulk_operations',
             'aliases' => array(),
             'reference' => '4.1.2',
+            'dev_requirement' => false,
+        ),
+        'drupal/views_data_export' => array(
+            'pretty_version' => '1.1.0',
+            'version' => '1.1.0.0',
+            'type' => 'drupal-module',
+            'install_path' => __DIR__ . '/../../modules/contrib/views_data_export',
+            'aliases' => array(),
+            'reference' => '8.x-1.1',
             'dev_requirement' => false,
         ),
         'drupal/views_googlenews' => array(
@@ -1017,6 +1170,15 @@
             'replaced' => array(
                 0 => '9.3.6',
             ),
+        ),
+        'drupal/workflow' => array(
+            'pretty_version' => '1.5.0',
+            'version' => '1.5.0.0',
+            'type' => 'drupal-module',
+            'install_path' => __DIR__ . '/../../modules/contrib/workflow',
+            'aliases' => array(),
+            'reference' => '8.x-1.5',
+            'dev_requirement' => false,
         ),
         'drupal/workflows' => array(
             'dev_requirement' => false,
@@ -1144,6 +1306,15 @@
             'reference' => '84ecbc2dbecc31bd23faf759a0e329ee49abddbd',
             'dev_requirement' => true,
         ),
+        'league/csv' => array(
+            'pretty_version' => '9.8.0',
+            'version' => '9.8.0.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../league/csv',
+            'aliases' => array(),
+            'reference' => '9d2e0265c5d90f5dd601bc65ff717e05cec19b47',
+            'dev_requirement' => false,
+        ),
         'masterminds/html5' => array(
             'pretty_version' => '2.7.5',
             'version' => '2.7.5.0',
@@ -1211,6 +1382,15 @@
             'install_path' => __DIR__ . '/../pear/pear_exception',
             'aliases' => array(),
             'reference' => 'b14fbe2ddb0b9f94f5b24cf08783d599f776fff0',
+            'dev_requirement' => false,
+        ),
+        'phayes/geophp' => array(
+            'pretty_version' => '1.2',
+            'version' => '1.2.0.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../phayes/geophp',
+            'aliases' => array(),
+            'reference' => '015404e85b602e0df1f91441f8db0f9e98f7e567',
             'dev_requirement' => false,
         ),
         'phpmailer/phpmailer' => array(

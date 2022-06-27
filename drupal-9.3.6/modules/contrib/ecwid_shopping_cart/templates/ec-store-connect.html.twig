@@ -1,0 +1,22 @@
+<div class="ec-store-box">
+    <div class="greeting-image">
+    </div>
+
+    <div class="greeting-message mobile-br">Connect your store<br> to this Drupal site</div>
+
+    {%  if error == 'access_denied' %}
+        <div class="note error">
+            Connection error - after clicking button you need to login and accept permissions to use our plugin. Please, try again.
+        </div>
+    {%  endif %}
+    <div class="connect-button">
+        <a href="{{ oauthUrl }}" class="button button-primary">Connect</a>
+    </div>
+    
+    
+    <div class="note initial">To display your store on this site, you need to allow Drupal to access your products. Please press connect to provide permission.</div>
+
+    <div class="create-account-link">
+        <a target="_blank" href="{{ registerLink }}">Don't have an Ecwid account? Create one now.</a>
+    </div>
+</div>

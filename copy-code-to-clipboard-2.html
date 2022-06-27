@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/css/bootstrap.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/js/bootstrap.js"></script>
+    <script src="https://cdn.jsdelivr.net/clipboard.js/1.5.3/clipboard.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h2>1. Copy text from the Input field</h2>
+        <div class="input-group mb-3">
+            <input type="text" id="example1" value="https://geekstrick.com" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2">
+            <div class="input-group-append">
+                <button class="btn copyButton btn-outline-secondary" data-clipboard-target="input#example1" ata-clipboard-action="example1" type="button" id="button-addon2"><i class="far fa-copy"></i></button>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="container">
+        <h2>2. Copy text from the kbd tag</h2>
+        <div class="jumbotron">
+            <label> Product Number : </label>
+            <kbd id="copy"> 12743-64833-383993-646383 </kbd> &nbsp;&nbsp;
+            <button class="copyButton btn btn-default" id="copyButtonId" data-clipboard-action="copy" data-clipboard-target="kbd#copy">
+         <i class="far fa-copy"></i>
+         
+     </button>
+        </div>
+    </div>
+    <script type="text/javascript">
+        var clipboard = new Clipboard('.copyButton');
+        clipboard.on('success', function(e) {
+            console.log(e);
+        });
+        clipboard.on('error', function(e) {
+            console.log(e);
+        });
+    </script>
+</body>
+
+</html>
+
+<!-- Source: https://codepen.io/geekstrick/pen/vaKXrz-->

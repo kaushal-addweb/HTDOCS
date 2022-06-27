@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.22.0/themes/prism-tomorrow.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/prism.min.js"></script>
+    <style>
+        *,
+        *:before,
+        *:after {
+            box-sizing: border-box;
+        }
+        
+        pre[class*="language-"] {
+            position: relative;
+            overflow: auto;
+            margin: 5px 0;
+            padding: 1.75rem 0 1.75rem 1rem;
+            border-radius: 10px;
+        }
+        
+        button {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            font-size: .9rem;
+            padding: .15rem;
+            background-color: #828282;
+            color: 1e1e1e;
+            border: ridge 1px #7b7b7c;
+            border-radius: 5px;
+            text-shadow: #c4c4c4 0 0 2px;
+        }
+        
+        button:hover {
+            cursor: pointer;
+            background-color: #bcbabb;
+        }
+        
+        main {
+            display: grid;
+            max-width: 600px;
+            margin: 20px auto;
+        }
+        
+        h1 {
+            font-size: 1.3rem;
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <main>
+        <h1>All hail the Clipboard API</h1>
+        <p>Florid, wordly code exposition.</p>
+        <pre><code class="language-css">.some-box {
+  width: 20px;
+  height: 20px;
+  background: black;
+  margin-bottom: 1.5rem;
+}
+</code></pre>
+        <p>And I'll tell you another thing..</p>
+        <pre><code class="language-html">&lt;div class="box drop3"&gt;&lt;/div&gt;</code></pre>
+        <p>No! Not finished..</p>
+        <pre><code class="language-javascript">console.log("finished");</code></pre>
+    </main>
+    <script type="text/javascript">
+        const copyButtonLabel = "Copy Code";
+
+        // you can use a class selector instead if you, or the syntax highlighting library adds one to the 'pre'. 
+        let blocks = document.querySelectorAll("pre");
+
+        blocks.forEach((block) => {
+            // only add button if browser supports Clipboard API
+            if (navigator.clipboard) {
+                let button = document.createElement("button");
+                button.innerText = copyButtonLabel;
+                button.addEventListener("click", copyCode);
+                block.appendChild(button);
+            }
+        });
+
+        async function copyCode(event) {
+            const button = event.srcElement;
+            const pre = button.parentElement;
+            let code = pre.querySelector("code");
+            let text = code.innerText;
+            await navigator.clipboard.writeText(text);
+
+            button.innerText = "Code Copied";
+
+            setTimeout(() => {
+                button.innerText = copyButtonLabel;
+            }, 1000)
+        }
+    </script>
+</body>
+
+</html>
+
+<!-- Source: https://codepen.io/robjoeol/pen/poWQGLo-->

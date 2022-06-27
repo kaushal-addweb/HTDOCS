@@ -1,0 +1,7 @@
+services:
+  modal_page.modals:
+    class: Drupal\modal_page\Service\ModalPageService
+    arguments: ['@language_manager', '@entity_type.manager', '@config.factory', '@database', '@request_stack', '@path.matcher', '@uuid', '@current_user', '@path_alias.manager', '@module_handler', '@path.current']
+  modal_page.helper:
+    class: Drupal\modal_page\Service\ModalPageHelperService
+    arguments: ['@language_manager', '@current_user', '@entity_type.manager']

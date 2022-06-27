@@ -1,0 +1,10 @@
+name: Ecwid Ecommerce Shopping Cart
+type: module
+description: 'Ecwid Ecommerce is everything you need to add an online store to your Drupal website.'
+core: 8.x
+core_version_requirement: ^8 || ^9
+package: Commerce
+# Information added by Drupal.org packaging script on 2021-07-08
+version: '8.x-3.3'
+project: 'ecwid_shopping_cart'
+datestamp: 1625728770

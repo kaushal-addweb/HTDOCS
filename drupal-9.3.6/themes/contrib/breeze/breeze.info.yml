@@ -1,0 +1,38 @@
+core: 8.x
+core_version_requirement: ^8 || ^9
+type: theme
+base theme: bootstrap
+
+name: 'Breeze Drupal 8 Theme'
+description: 'A Drupal 8 theme based on OSTraining Breeze theme design.'
+package: 'Bootstrap'
+
+regions:
+  header: 'Header'
+  header_right: 'Header Right'
+  navigation: 'Navigation'
+  navigation_collapsible: 'Navigation (Collapsible)'
+  highlighted: 'Highlighted'
+  help: 'Help'
+  content: 'Content'
+  sidebar_first: 'Primary'
+  sidebar_second: 'Secondary'
+  content_bottom1: 'Content Bottom 1'
+  content_bottom2: 'Content Bottom 2'
+  content_bottom3: 'Content Bottom 3'
+  footer: 'Footer'
+  footer1: 'Footer One'
+  footer2: 'Footer Two'
+  footer3: 'Footer Three'
+  page_top: 'Page top'
+  page_bottom: 'Page bottom'
+
+libraries:
+  - 'breeze/global-styling'
+  - 'breeze/open-sans'
+  - 'breeze/global-js'
+
+# Information added by Drupal.org packaging script on 2020-08-18
+version: '3.0.0'
+project: 'breeze'
+datestamp: 1597793789

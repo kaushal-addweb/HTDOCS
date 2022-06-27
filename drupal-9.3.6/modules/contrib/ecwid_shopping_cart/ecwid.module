@@ -1,0 +1,124 @@
+<?php
+use Drupal\ecwid\Controller\StorePage;
+use Drupal\ecwid\Controller\Connect;
+/**
+* @file
+* A description of what your module does.
+*/
+
+use Drupal\Core\Url;
+
+/**
+ * Implements hook_theme().
+ */
+function ecwid_theme() {
+	return [
+		'ec_store_page' => [
+		  'render element' => 'element',
+      'variables' => [
+        'storeId' => '',
+        'lang'    => '',
+        'pageUrl' => ''
+      ]
+    ],
+		'ec_store_connect' => [
+		  'render element' => 'element',
+      'variables' => [
+        'oauthUrl' => '',
+        'error' => '',
+        'registerLink' => ''
+      ]
+    ],
+		'ec_store_control_panel' => [
+		  'variables' => [
+		    'iframeSrc' => ''
+      ]
+    ]
+	];
+}
+
+function ecwid_toolbar() {
+	// Add a link to enable all examples.
+  
+  $tab = [
+    '#type' => 'link',
+    '#title' => t('Ecwid'),
+    '#url' => Url::fromRoute('ecwid.connect'),
+    '#attributes' => [
+      'class' => ['toolbar-icon', 'toolbar-icon-ec-store'],
+    ],
+  ];
+  
+  $links = [];
+  if (\Drupal::config('ecwid.config')->get('token')) {
+    $links = [
+      'store-dashboard' => [
+        'title' => t('Store Dashboard'),
+        'url' => Url::fromRoute('ecwid.control-panel')
+      ],
+      'visit-storefront' => [
+        'title' => t('Visit storefront'),
+        'url' => Url::fromRoute(StorePage::ROUTE_HOMEPAGE),
+        'attributes' => [
+          'target' => '_blank'
+        ]
+      ],
+      'reconnect' => [
+        'title' => t('Reconnect to another store'),
+        'url' => Url::fromUri(Connect::getOauthDialogUrl())
+      ],
+    ];
+  } else {
+    $links = [[
+      'title' => t('Setup'),
+      'url' => Url::fromRoute('ecwid.connect')
+    ]];
+  }
+  
+  $items['ec-store'] = [
+    '#type' => 'toolbar_item',
+    'tab' => $tab,
+    
+    'tray' => [
+      '#heading' => t('Ecwid Settings'),
+      'ec store items' => [
+        '#links' => $links,
+        '#theme' => 'links__toolbar_example',
+        '#attributes' => [
+          'class' => ['toolbar-menu ec-store-toolbar-menu'],
+        ],
+      ],
+    ],
+    '#attached' => [
+      'library' => [
+        'ecwid/ec-store-admin',
+      ],
+    ],
+    '#weight' => 99,
+  ];
+  
+  return $items;
+}
+
+function ecwid_preprocess_html(&$variables) {
+  $name = \Drupal::routeMatch()->getRouteName();
+  if ($name != 'ecwid.control-panel') return;
+
+  $variables['attributes']['class'][] = 'ec-store-control-panel';
+  /*
+  $node = \Drupal::routeMatch()->getParameter('node');
+
+  if ($node) {
+    $custom_body_class = $node->get('body_class')->getValue();
+    $specific_node_class = $node->get('specific_node_class')[0];
+    if (!empty($custom_body_class) && isset($custom_body_class[0]) && isset($custom_body_class[0]['value'])) {
+      $variables['attributes']['class'][] = $custom_body_class[0]['value'];
+    }
+    if (!empty($specific_node_class) && ($specific_node_class->getValue() !== NULL) && ($specific_node_class->getValue()['value'] == 1)) {
+      $variables['attributes']['class'][] = $node->gettype();
+    }
+    $type = \Drupal::service('entity.manager')->getStorage('node_type')->load($node->getType());
+    $classes = $type->getThirdPartySetting('node_type_class', 'classes', '');
+    $variables['attributes']['class'][] = $classes;
+  }*/
+}

@@ -1,0 +1,4 @@
+homepage.ecwid:
+  title: 'Store'
+  menu_name: 'main'
+  route_name: ecwid.homepage

@@ -1,0 +1,218 @@
+<?php
+
+/**
+ * @file
+ * Main file for the Modal Page.
+ */
+
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Routing\RouteMatchInterface;
+use Symfony\Component\HttpFoundation\Cookie;
+use Symfony\Component\HttpFoundation\Response;
+
+/**
+ * Implements hook_form_alter().
+ */
+function modal_page_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+
+  // Include Modal Page Admin Library only for Modal settings.
+  if ($form_id == 'modal_add_form' || $form_id == 'modal_edit_form') {
+    $form['#attached']['library'][] = 'modal_page/modal-page-admin';
+  }
+
+  return $form;
+}
+
+/**
+ * Implements hook_page_attachments().
+ */
+function modal_page_page_attachments(array &$attachments) {
+
+  // Get Modals to show on current page.
+  $modals = \Drupal::service('modal_page.modals')->getModalsToShow();
+
+  // If there are none, skip the rest of the function.
+  if (empty($modals)) {
+    return FALSE;
+  }
+
+  // Load Modal Page Library.
+  $attachments['#attached']['library'][] = 'modal_page/modal-page';
+
+  // Modal Settings.
+  $config = \Drupal::config('modal_page.settings');
+
+  // Verify if needs to load Bootstrap CDN.
+  $loadBootstrap = $config->get('load_bootstrap');
+
+  // Load Bootstrap Library only if necessary.
+  if (!empty($loadBootstrap)) {
+    $attachments['#attached']['library'][] = 'modal_page/modal-page-bootstrap';
+  }
+
+}
+
+/**
+ * Implements hook_theme().
+ */
+function modal_page_theme() {
+  return [
+    'modal_page_modal' => [
+      'variables' => [
+        'do_not_show_again' => NULL,
+        'title' => NULL,
+        'display_title' => NULL,
+        'text' => NULL,
+        'delay_display' => NULL,
+        'modal_size' => NULL,
+        'button' => NULL,
+        'id' => NULL,
+        'close_modal_esc_key' => NULL,
+        'close_modal_clicking_outside' => NULL,
+        'modal_header_classes' => NULL,
+        'modal_footer_classes' => NULL,
+        'enable_modal_header' => NULL,
+        'enable_modal_footer' => NULL,
+        'display_button_x_close' => NULL,
+        'top_right_button_label' => NULL,
+        'top_right_button_class' => NULL,
+        'open_modal_on_element_click' => NULL,
+        'auto_open' => NULL,
+        'modal_class' => NULL,
+        'header_class' => NULL,
+        'footer_class' => NULL,
+        'enable_left_button' => NULL,
+        'left_label_button' => NULL,
+        'enable_right_button' => NULL,
+        'ok_button_class' => NULL,
+        'left_button_class' => NULL,
+        'modal_options' => NULL,
+        'id_label' => NULL,
+        'id_desc' => NULL,
+        'enable_redirect_link' => NULL,
+        'redirect_link' => NULL,
+      ],
+    ],
+    'modal_page_helper_admin' => [
+      'variables' => [],
+    ],
+
+  ];
+}
+
+/**
+ * Implements hook_preprocess_html().
+ */
+function modal_page_preprocess_html(&$variables) {
+
+  // Get Modals to show on the current page.
+  $modals = \Drupal::service('modal_page.modals')->getModalsToShow();
+
+  // If there are none, skip the rest of the function.
+  if (empty($modals)) {
+    return FALSE;
+  }
+
+  foreach ($modals as $modal) {
+
+    $modalOptions = \Drupal::service('modal_page.helper')->getModalOptions($modal);
+
+    $variables['page_top']['slidedown_templates'][] = [
+      '#theme' => 'modal_page_modal',
+      '#do_not_show_again'            => $modal->getDontShowAgainLabel(),
+      '#title'                        => $modal->label(),
+      '#display_title'                => $modal->getDisplayTitle(),
+      '#text'                         => $modal->getBody(),
+      '#delay_display'                => $modal->getDelayDisplay(),
+      '#modal_size'                   => $modal->getModalSize(),
+      '#button'                       => $modal->getOkLabelButton(),
+      '#id'                           => $modal->id(),
+      '#close_modal_esc_key'          => $modal->getCloseModalEscKey(),
+      '#close_modal_clicking_outside' => $modal->getCloseModalClickingOutside(),
+      '#modal_header_classes'         => $modal->getHeaderClass(),
+      '#modal_footer_classes'         => $modal->getFooterClass(),
+      '#enable_modal_header'          => $modal->getEnableModalHeader(),
+      '#enable_modal_footer'          => $modal->getEnableModalFooter(),
+      '#display_button_x_close'       => $modal->getDisplayButtonXclose(),
+      '#top_right_button_label'       => $modal->getTopRightButtonLabel(),
+      '#top_right_button_class'       => $modal->getTopRightButtonClass(),
+      '#open_modal_on_element_click'  => $modal->getOpenModalOnElementClick(),
+      '#auto_open'                    => $modal->getAutoOpen(),
+      '#modal_class'                  => $modal->getModalClass(),
+      '#enable_left_button'           => $modal->getEnableLeftButton(),
+      '#left_label_button'            => $modal->getLeftLabelButton(),
+      '#enable_right_button'          => $modal->getEnableRightButton(),
+      '#ok_button_class'              => $modal->getOkButtonClass(),
+      '#left_button_class'            => $modal->getLeftButtonClass(),
+      '#modal_options'                => $modalOptions,
+      '#id_label'                     => $modal->id() . '_label',
+      '#id_desc'                      => $modal->id() . '_desc',
+      '#enable_redirect_link'         => $modal->getEnableRedirectLink(),
+      '#redirect_link'                => $modal->getRedirectLink(),
+    ];
+
+    if (!empty($modal->getEnableDontShowAgainOption())) {
+      $variables['page_top']['slidedown_templates']['#do_not_show_again'] = $modal->getEnableDontShowAgainOption();
+    }
+
+    // Drupal Settings.
+    $verifyLoadBootstrapAutomatically = \Drupal::config('modal_page.settings')->get('verify_load_bootstrap_automatically');
+
+    $variables['#attached']['drupalSettings']['modal_page']['verify_load_bootstrap_automatically'] = $verifyLoadBootstrapAutomatically;
+  }
+}
+
+/**
+ * Implements hook_help().
+ */
+function modal_page_help($route_name, RouteMatchInterface $route_match) {
+
+  switch ($route_name) {
+    case 'help.page.modal_page':
+
+      $output = '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Modal Page is the easiest and fastest way to put a modal on specific pages. For more information, see the online handbook entry for <a target="_blank" href="@modal_page">Modal Page</a>.', ['@modal_page' => 'https://www.drupal.org/project/modal_page']) . '</p>';
+      $output .= '<h3>' . t('Usage') . '</h3>';
+      $output .= '<p>' . t('You only need to configure the modal text and on which page it should appear. When someone visits this page, this modal will be displayed.') . '</p>';
+      $output .= '<dl>';
+      $output .= '<h3>' . t('Displaying modals') . '</h3>';
+      $output .= '<p>' . t('The configuration page of Modal Page can be accessed in <i>Structure</i>  » <i>Modal</i> screen. When followed the correct pattern, the modal can be displayed on screen very easily.') . '</p>';
+      $output .= '<p>' . t('<a href="@modal_page_configuration">Click here</a> to redirect to Modal Page configuration.', ['@modal_page_configuration' => \Drupal::urlGenerator()->generateFromRoute('modal_page.settings')]) . '</p>';
+      return $output;
+  }
+}
+
+/**
+ * Implements hook_entity_presave().
+ */
+function modal_page_entity_presave(EntityInterface $entity) {
+  \Drupal::service('modal_page.helper')->entityPresave($entity);
+}
+
+/**
+ * Implements hook_modal_submit().
+ */
+function modal_page_modal_submit($modal, $modal_state, $modal_id) {
+
+  // If isn't the Modal for welcome, skip.
+  if ($modal_id != 'thank_you_for_installing_modal_page') {
+    return FALSE;
+  }
+
+  // If wasn't clicked on don't show again, skip.
+  if (empty($modal_state['dont_show_again_option']) || $modal_state['dont_show_again_option'] == 'false') {
+    return FALSE;
+  }
+
+  // Delete the Modal used on welcome Message.
+  $modal->delete();
+
+  // Delete cookie for welcome Modal.
+  if (!empty(\Drupal::service('request_stack')->getCurrentRequest()->cookies->get('hide_modal_id_thank_you_for_installing_modal_page'))) {
+    $response = new Response();
+    $cookie = new Cookie('hide_modal_id_thank_you_for_installing_modal_page', '', time() - 3600, '/', NULL, FALSE);
+    $response->headers->setCookie($cookie);
+    $response->send();
+  }
+}

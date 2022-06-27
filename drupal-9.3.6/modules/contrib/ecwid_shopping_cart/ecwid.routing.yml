@@ -1,0 +1,23 @@
+route_callbacks:
+  - '\Drupal\ecwid\Controller\StorePage::routing'
+
+ecwid.connect:
+  path: '/admin/ec-store-connect'
+  defaults: 
+    _controller: '\Drupal\ecwid\Controller\Connect::generate'
+  requirements:
+    _permission: 'access content'  
+    
+ecwid.connect-token:
+  path: '/admin/ec-store-connect/token'
+  defaults:
+    _controller: '\Drupal\ecwid\Controller\Connect::getToken'
+  requirements:
+    _permission: 'access content' 
+
+ecwid.control-panel:
+  path: '/admin/ec-store'
+  defaults: 
+    _controller: '\Drupal\ecwid\Controller\ControlPanel::generate'
+  requirements:
+    _permission: 'access content'  

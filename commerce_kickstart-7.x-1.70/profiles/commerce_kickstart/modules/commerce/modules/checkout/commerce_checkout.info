@@ -1,0 +1,19 @@
+name = Checkout
+description = Enable checkout as a multi-step form with customizable checkout pages.
+package = Commerce
+dependencies[] = commerce
+dependencies[] = commerce_ui
+dependencies[] = commerce_order
+dependencies[] = entity
+dependencies[] = rules
+core = 7.x
+configure = admin/commerce/config/checkout
+
+; Simple tests
+files[] = tests/commerce_checkout.test
+
+; Information added by Drupal.org packaging script on 2022-03-05
+version = "7.x-1.17"
+core = "7.x"
+project = "commerce"
+datestamp = "1646502150"

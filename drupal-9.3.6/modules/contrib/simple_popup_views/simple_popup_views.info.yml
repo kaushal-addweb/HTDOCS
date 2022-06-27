@@ -1,0 +1,12 @@
+name: Simple Popup Views
+type: module
+description: 'Convert views field as popup'
+core_version_requirement: ^8.8 || ^9
+package: Views
+dependencies:
+  - drupal:views
+
+# Information added by Drupal.org packaging script on 2021-12-14
+version: '8.x-1.1'
+project: 'simple_popup_views'
+datestamp: 1639509353

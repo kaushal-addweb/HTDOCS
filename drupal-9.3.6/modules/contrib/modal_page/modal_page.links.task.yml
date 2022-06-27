@@ -1,0 +1,18 @@
+# Define tab links
+modal.list:
+  title: Modal list
+  route_name: entity.modal.collection
+  base_route: modal_page.default
+  weight: 1
+
+modal.settings:
+  title: Settings
+  route_name: modal_page.settings
+  base_route: modal_page.default
+  weight: 2
+
+modal.help:
+  title: Help
+  route_name: modal_page.help
+  base_route: modal_page.default
+  weight: 3

@@ -1,0 +1,82 @@
+div.ecwid {
+    border: 1px solid red;
+}
+.ec-store-box {
+    text-align: center;
+}
+
+.ec-store-box .head {
+    height: 50px;
+    border-bottom: 1px solid #E5E5E5;
+    padding: 5px 10px;
+    text-align: left;
+}
+
+.ec-store-box .head h3 {
+    line-height: 50px;
+    height: 50px;
+    margin: 0;
+}
+
+.ec-store-box .head svg {
+    width: 32px;
+    float: left;
+    margin-right:10px;
+    margin-top: 10px;
+}
+
+.ec-store-box .greeting-image {
+    margin-top: 20px;
+    background: url(../images/store_inprogress.png);
+    height: 142px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.ec-store-box .greeting-message {
+    font-size: 24px;
+    font-weight: lighter;
+    margin-top: 10px;
+    line-height: 1.3em;
+    margin-bottom: 30px;
+}
+
+.ec-store-box .greeting-message.mobile-br br {
+    display: none;
+}
+
+@media screen and (max-width: 700px) {
+    .ec-store-box .greeting-message.mobile-br br {
+        display: inherit;
+    }
+}
+
+.ec-store-box .connect-button {
+    margin-bottom: 10px;
+}
+
+.ec-store-box .connect-button .button {
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.ec-store-box .note {
+    color: #A0A0A0;
+    line-height: 18px;
+    max-width: 400px;
+    margin: auto;
+}
+
+.ec-store-box .note.error {
+    color: red;
+    margin-bottom: 10px;
+}
+
+.ec-store-box .create-account-link {
+    margin-top: 30px;
+}
+
+.ec-store-box div:last-child {
+    margin-bottom: 30px;
+}

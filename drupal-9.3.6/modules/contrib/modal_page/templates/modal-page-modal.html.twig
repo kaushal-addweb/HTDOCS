@@ -1,0 +1,71 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display modal.
+ *
+ * @ingroup templates
+ * @see modal_page_preprocess_html()
+ */
+#}
+<div id="js-modal-page-show-modal" class="{{ modal_class }}" data-modal-options="{{ modal_options }}" data-keyboard="{{ close_modal_esc_key }}" data-backdrop="{{ close_modal_clicking_outside }}" aria-modal="true" {{ enable_modal_header and display_title ? 'aria-labelledby=' ~ id_label }} aria-describedby="{{ id_desc }}" role="dialog" tabindex="-1">
+  <div class="modal-page-dialog modal-dialog {{ modal_size }}" role="document">
+    <div class="modal-page-content modal-content">
+
+      {# Verify if Modal Header is enabled. #}
+      {% if enable_modal_header %}
+
+        <div class="modal-page-content modal-header {{ modal_header_classes }}">
+
+          {# Verify if should Display button X. #}
+          {% if display_button_x_close %}
+            <button type="button" class="close js-modal-page-ok-button {{ top_right_button_class }}" data-dismiss="modal">{{ top_right_button_label|raw }}</button>
+          {% endif %}
+
+          {# Verify if should Display Title. #}
+          {% if display_title %}
+            <h4 id="{{ id_label }}" class="modal-title modal-page-title">{{ title|raw }}</h4>
+          {% endif %}
+
+        </div>
+
+      {% endif %}
+
+      {# Show Modal Body #}
+      <div id="{{ id_desc }}" class="modal-body modal-page-body">
+        {{ text|raw }}
+      </div>
+
+      {# Verify if Modal footer is enabled. #}
+      {% if enable_modal_footer %}
+
+        <div class="modal-footer modal-page-footer {{ modal_footer_classes }}">
+
+          {# Don't Show Again option #}
+          {% if do_not_show_again %}
+            <label class ="modal-dont-show-again-label"><input type="checkbox" class="modal-page-please-do-not-show-again" value="{{ id }}"> {{ do_not_show_again }}</label>
+          {% endif %}
+
+          <div class="modal-buttons">
+
+            {# Left Button #}
+            {% if enable_left_button %}
+              <button type="button" class="btn btn-default js-modal-page-left-button {{ left_button_class }}" data-dismiss="modal">{{ left_label_button }}</button>
+            {% endif %}
+
+            {# Right Button #}
+            {% if enable_right_button %}
+              <button type="button" class="btn btn-default js-modal-page-ok-button {{ ok_button_class }}" data-dismiss="modal" {% if enable_redirect_link %} data-redirect="{{ redirect_link }}" {% endif %}>{{ button }}</button>
+            {% endif %}
+
+          </div>
+
+          {# Delay to Display #}
+          <input type="hidden" id="delay_display" name="delay_display" value="{{ delay_display|raw }}" />
+
+        </div>
+
+      {% endif %}
+
+    </div>
+  </div>
+</div>

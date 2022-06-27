@@ -1,0 +1,40 @@
+modal_page.settings:
+  path: '/admin/config/user-interface/modal-page/settings'
+  defaults:
+    _title: 'Modal Page Settings'
+    _form: 'Drupal\modal_page\Form\ModalPageSettingsForm'
+  requirements:
+    _permission: 'administer modal page'
+
+modal_page.default:
+  path: '/admin/structure/modal'
+  defaults:
+    _entity_list: 'modal_page_modal'
+    _title: 'Modal'
+  requirements:
+    _permission: 'administer modal page'
+
+modal_page.help:
+  path: '/admin/modal/help'
+  defaults:
+    _controller: '\Drupal\modal_page\Controller\ModalHelpController::index'
+    _title: 'Help'
+  requirements:
+    _permission: 'administer modal page'
+
+modal_page.enable_bootstrap:
+  path: '/modal-page/ajax/enable-bootstrap'
+  defaults:
+    _title: 'Enable Bootstrap Automatically'
+    _controller: '\Drupal\modal_page\Controller\ModalAjaxController::enableBootstrapAutomatically'
+  requirements:
+    _permission: 'administer modal page'
+
+modal_page.hook_modal_submit:
+  path: '/modal/ajax/hook-modal-submit'
+  defaults:
+    _title: 'Modal Submit'
+    _controller: '\Drupal\modal_page\Controller\ModalAjaxController::hookModalSubmit'
+  requirements:
+    _permission: 'access content'
+    _access: 'TRUE'

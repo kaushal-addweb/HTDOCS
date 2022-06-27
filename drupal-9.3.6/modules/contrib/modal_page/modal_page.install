@@ -1,0 +1,694 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the Modal Page.
+ */
+
+use Drupal\Core\Field\BaseFieldDefinition;
+use Drupal\Core\Serialization\Yaml;
+use Drupal\Core\Url;
+use Drupal\modal_page\Helper\ModalPageFieldHelper;
+use Drupal\Core\Config\Entity\ConfigEntityType;
+use Drupal\Core\StringTranslation\TranslatableMarkup;
+use Drupal\user\Entity\Role;
+
+// Modal Page install helper functions.
+include_once __DIR__ . '/includes/modal_page.install.inc';
+
+/**
+ * Implements hook_install().
+ */
+function modal_page_install() {
+
+  $messenger = \Drupal::messenger();
+
+  $messenger->addStatus(t('Modal Page load bootstrap.min.js by default, if this library is already loaded in other place, you can verify a option <b>Don\'t load external JS Bootstrap</b> on <a href="@modal_page_settings">Modal Settings</a>', [
+    '@modal_page_settings' => Url::fromRoute('modal_page.settings')->toString(),
+  ]));
+
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function modal_page_uninstall() {
+  \Drupal::configFactory()->getEditable('modal_page.settings')->delete();
+}
+
+/**
+ * Modal Page with Entities.
+ */
+function modal_page_update_8001() {
+  \Drupal::entityDefinitionUpdateManager()->applyUpdates();
+  \Drupal::service('modal_page.modals')->importModalConfigToEntity();
+
+  $messenger = \Drupal::messenger();
+  $messenger->addStatus(t('Thanks for use Modal Page 2'));
+  $messenger->addStatus(t('You may create Modal by visiting: You may create Modal at: Administration » Structure » Modal'));
+}
+
+/**
+ * Implements hook_update_N().
+ */
+function modal_page_update_8201() {
+  update_modal_page_views();
+}
+
+/**
+ * Implements hook_update_N().
+ *
+ * Hook to update the entity modal_page_modal.
+ */
+function modal_page_update_8202() {
+  create_storage_published();
+  populate_published_field();
+
+  \Drupal::service('cache.render')->invalidateAll();
+}
+
+/**
+ * Implements hook_update_N().
+ *
+ * Hook to update views settings.
+ */
+function modal_page_update_8203() {
+  update_modal_page_views();
+}
+
+/**
+ * Add new field on entity to open modal by element click.
+ */
+function modal_page_update_8204() {
+  update_entity_field_element_click();
+}
+
+/**
+ * Create Auto Open Feature.
+ */
+function modal_page_update_8205() {
+
+  $field_storage_definition = BaseFieldDefinition::create('boolean')
+    ->setLabel(t("Auto Open"))
+    ->setDefaultValue(TRUE)
+    ->setDisplayConfigurable('form', TRUE)
+    ->setDisplayOptions('form', [
+      'type' => 'boolean_checkbox',
+      'settings' => [
+        'display_label' => TRUE,
+      ],
+      'weight' => -5,
+    ]);
+
+  \Drupal::entityDefinitionUpdateManager()->installFieldStorageDefinition('auto_open', 'modal_page_modal', 'modal_page_modal', $field_storage_definition);
+
+  $field_to_be_updated = ['auto_open' => TRUE];
+
+  modal_page_update_modal_table($field_to_be_updated);
+
+  \Drupal::service('cache.render')->invalidateAll();
+}
+
+/**
+ * Update on Modal Views to be more organized.
+ */
+function modal_page_update_8206() {
+  update_modal_page_views();
+}
+
+/**
+ * Created new field "Don't show again".
+ */
+function modal_page_update_8207() {
+  $field_storage_definition = BaseFieldDefinition::create('boolean')
+    ->setLabel(t("Enable <b>Don't show again</b> option"))
+    ->setDefaultValue(TRUE)
+    ->setDisplayConfigurable('form', TRUE)
+    ->setDisplayOptions('form', [
+      'type' => 'boolean_checkbox',
+      'settings' => [
+        'display_label' => TRUE,
+      ],
+      'weight' => -5,
+    ]);
+
+  \Drupal::entityDefinitionUpdateManager()->installFieldStorageDefinition('enable_dont_show_again_option', 'modal_page_modal', 'modal_page_modal', $field_storage_definition);
+
+  $field_to_be_updated = ['enable_dont_show_again_option' => TRUE];
+
+  modal_page_update_modal_table($field_to_be_updated);
+
+  \Drupal::service('cache.render')->invalidateAll();
+}
+
+/**
+ * Created new field to restrict Modal by Role.
+ */
+function modal_page_update_8208() {
+  $modalPageFieldHelper = new ModalPageFieldHelper();
+  $fieldRole = $modalPageFieldHelper->getFieldRole();
+  \Drupal::entityDefinitionUpdateManager()->installFieldStorageDefinition('roles', 'modal_page_modal', 'modal_page_modal', $fieldRole);
+}
+
+/**
+ * Created new field to choose label "Don't show again".
+ */
+function modal_page_update_40001() {
+  // Its not necessary because we already fill items in modal_page_update_40003.
+}
+
+/**
+ * Created new field "Close Modal with ESC and Clicling Outside".
+ */
+function modal_page_update_40002() {
+  // Its not necessary because we already fill items in modal_page_update_40003.
+}
+
+/**
+ * Create Modal Page Entity.
+ */
+function modal_page_update_40003() {
+
+  $modalEntity = new ConfigEntityType([
+    'id' => 'modal',
+    'label' => new TranslatableMarkup('Modal'),
+    'config_prefix' => 'modal',
+    'admin_permission' => 'administer modal page',
+    'label_callback' => 'getLabelFromPlugin',
+    'entity_keys' => [
+      'id' => 'id',
+      'label' => 'label',
+      'uuid' => 'uuid',
+      'body' => 'body',
+      'pages' => 'pages',
+      'parameters' => 'parameters',
+      'auto_open' => 'auto_open',
+      'open_modal_on_element_click' => 'open_modal_on_element_click',
+      'langcode' => 'langcode',
+      'ok_label_button' => 'ok_label_button',
+      'enable_dont_show_again_option' => 'enable_dont_show_again_option',
+      'dont_show_again_label' => 'dont_show_again_label',
+      'modal_size' => 'modal_size',
+      'close_modal_esc_key' => 'close_modal_esc_key',
+      'close_modal_clicking_outside' => 'close_modal_clicking_outside',
+      'roles' => 'roles',
+      'type' => 'type',
+      'delay_display' => 'delay_display',
+      'published' => 'published',
+    ],
+    'config_export' => [
+      'id',
+      'label',
+      'uuid',
+      'body',
+      'pages',
+      'parameters',
+      'auto_open',
+      'open_modal_on_element_click',
+      'langcode',
+      'ok_label_button',
+      'enable_dont_show_again_option',
+      'dont_show_again_label',
+      'modal_size',
+      'close_modal_esc_key',
+      'close_modal_clicking_outside',
+      'roles',
+      'type',
+      'delay_display',
+      'published',
+    ],
+  ]);
+
+  \Drupal::entityDefinitionUpdateManager()->installEntityType($modalEntity);
+
+  // Delete old Views.
+  \Drupal::service('config.factory')->getEditable('views.view.' . 'list_modal')->delete();
+
+  // Clear Views' cache.
+  drupal_flush_all_caches();
+
+  // Clear cache.
+  \Drupal::service('cache.render')->invalidateAll();
+
+  // Load Modals.
+  $database = \Drupal::database();
+  $query = $database->select('modal', 'm')->fields('m');
+  $modals = $query->execute();
+
+  // Create a Modal Backup.
+  $modals = $modals->fetchAllAssoc('id');
+
+  // Convert Object to Array.
+  $modals = json_decode(json_encode($modals), TRUE);
+
+  // Serialize Data to Backup.
+  $modalBackup = serialize($modals);
+
+  // Save backup.
+  $config = \Drupal::service('config.factory')->getEditable('modal_page.settings');
+  $config->set('modal_backup_content_entity', $modalBackup);
+  $config->save();
+
+  // Insert Modals in Config Entity.
+  foreach ($modals as $modalId => $modal) {
+
+    $modalEntityId = 0;
+    if (!empty($modal['id'])) {
+      $modalEntityId = $modal['id'];
+    }
+
+    $title = '';
+    if (!empty($modal['title'])) {
+      $title = $modal['title'];
+    }
+
+    $body = '';
+    if (!empty($modal['body__value'])) {
+      $body = $modal['body__value'];
+    }
+
+    $type = 'page';
+    if (!empty($modal['type'])) {
+      $type = $modal['type'];
+    }
+
+    $pages = '';
+    if (!empty($modal['pages'])) {
+      $pages = $modal['pages'];
+    }
+
+    $parameters = '';
+    if (!empty($modal['parameters'])) {
+      $parameters = $modal['parameters'];
+    }
+
+    $autoOpen = 0;
+    if (!empty($modal['auto_open'])) {
+      $autoOpen = $modal['auto_open'];
+    }
+
+    $openModalOnElementClick = '';
+    if (!empty($modal['open_modal_on_element_click'])) {
+      $openModalOnElementClick = $modal['open_modal_on_element_click'];
+    }
+
+    $enableDontShowAgainOption = 1;
+    if (empty($modal['enable_dont_show_again_option'])) {
+      $enableDontShowAgainOption = $modal['enable_dont_show_again_option'];
+    }
+
+    $dontShowAgainLabel = t("Don't show again");
+    if (!empty($modal['dont_show_again_label'])) {
+      $dontShowAgainLabel = $modal['dont_show_again_label'];
+    }
+
+    $closeModalEscKey = 1;
+    if (isset($modal['close_modal_esc_key']) && empty($modal['close_modal_esc_key'])) {
+      $closeModalEscKey = $modal['close_modal_esc_key'];
+    }
+
+    $closeModalClickingOutside = 1;
+    if (isset($modal['close_modal_clicking_outside']) && empty($modal['close_modal_clicking_outside'])) {
+      $closeModalClickingOutside = $modal['close_modal_clicking_outside'];
+    }
+
+    $published = 0;
+    if (!empty($modal['published'])) {
+      $published = $modal['published'];
+    }
+
+    $delayDisplay = 0;
+    if (!empty($modal['delay_display'])) {
+      $delayDisplay = $modal['delay_display'];
+    }
+
+    $modalSize = 'modal-md';
+    if (!empty($modal['modal_size'])) {
+      $modalSize = $modal['modal_size'];
+    }
+
+    $okLabelButton = t('OK');
+    if (!empty($modal['ok_label_button'])) {
+      $okLabelButton = $modal['ok_label_button'];
+    }
+
+    $langcode = '';
+    if (!empty($modal['langcode'])) {
+      $langcode = $modal['langcode'];
+    }
+
+    // Get Roles.
+    $roles = [];
+
+    $databaseRoles = \Drupal::database();
+    $queryRoles = $databaseRoles->select('modal_page_modal__roles', 'mpmr')->fields('mpmr');
+    $queryRoles->condition('mpmr.entity_id', $modalEntityId, '=');
+    $modalPageRoles = $queryRoles->execute()->fetchAll();
+
+    // Convert Object to Array.
+    $modalPageRoles = json_decode(json_encode($modalPageRoles), TRUE);
+
+    foreach ($modalPageRoles as $modalPageRole) {
+
+      $modalPageRole = json_decode(json_encode($modalPageRole), TRUE);
+
+      if (!empty($modalPageRole['roles_value'])) {
+        $role = $modalPageRole['roles_value'];
+        $roles[$role] = $role;
+      }
+    }
+
+    $modal = \Drupal::entityTypeManager()->getStorage('modal')->create();
+
+    $id = preg_replace('/[^A-Za-z0-9\-]/', '_', strtolower($title));
+
+    if ($id == 'thank_you_for_installing_modal_page') {
+      continue;
+    }
+
+    $id = $id . '_' . $modalId;
+
+    $modal->setId($id);
+    $modal->setLabel($title);
+    $modal->setBody($body);
+    $modal->setType($type);
+    $modal->setPages($pages);
+    $modal->setParameters($parameters);
+    $modal->setRoles($roles);
+    $modal->setPublished($published);
+    $modal->setDelayDisplay($delayDisplay);
+    $modal->setAutoOpen($autoOpen);
+    $modal->setOpenModalOnElementClick($openModalOnElementClick);
+    $modal->setEnableDontShowAgainOption($enableDontShowAgainOption);
+    $modal->setModalSize($modalSize);
+    $modal->setOkLabelButton($okLabelButton);
+    $modal->setLangCode($langcode);
+    $modal->setDontShowAgainLabel($dontShowAgainLabel);
+    $modal->setCloseModalEscKey($closeModalEscKey);
+    $modal->setCloseModalClickingOutside($closeModalClickingOutside);
+    $modal->save();
+  }
+
+  $roles = Role::loadMultiple();
+
+  foreach ($roles as $rid => $role) {
+
+    // Skyp anonymous and authenticated.
+    if ($rid == 'anonymous' || $rid == 'authenticated') {
+      continue;
+    }
+
+    // If has permission, that's ok.
+    if (!empty($role->hasPermission('administer modal page'))) {
+      continue;
+    }
+
+    // Verify if have all permissions to receive the new one.
+    if (!empty($role->hasPermission('delete modal entity')) && !empty($role->hasPermission('add modal entity')) && !empty($role->hasPermission('view modal entity')) && !empty($role->hasPermission('edit modal entity')) && !empty($role->hasPermission('administer modal entity'))) {
+      $role->grantPermission('administer modal page');
+      $role->save();
+    }
+  }
+
+  modal_page_add_modal_thanks_for_upgrade_4();
+}
+
+/**
+ * Insert Modal Header and Modal Footer Line.
+ */
+function modal_page_update_40004() {
+
+  // Load all Modals.
+  $modals = \Drupal::entityTypeManager()->getStorage('modal')->loadMultiple();
+
+  foreach ($modals as $modal) {
+
+    // Set Insert Horizontal Line Header = TRUE as default.
+    $modal->setInsertHorizontalLineHeader(TRUE);
+
+    // Set Insert Horizontal Line Footer = TRUE as default.
+    $modal->setInsertHorizontalLineFooter(TRUE);
+
+    // Modal Safe.
+    $modal->save();
+  }
+}
+
+/**
+ * Insert Modal Header and Modal footer enabled by default.
+ */
+function modal_page_update_40005() {
+
+  // Load all Modals.
+  $modals = \Drupal::entityTypeManager()->getStorage('modal')->loadMultiple();
+
+  foreach ($modals as $modal) {
+
+    // Set Enable Modal Header as TRUE by default.
+    $modal->setEnableModalHeader(TRUE);
+
+    // Set Enable Modal footer as TRUE by default.
+    $modal->setEnableModalFooter(TRUE);
+
+    // Modal Safe.
+    $modal->save();
+  }
+}
+
+/**
+ * Insert Modal Display Title enabled by default and button X enabled as well.
+ */
+function modal_page_update_40006() {
+
+  // Load all Modals.
+  $modals = \Drupal::entityTypeManager()->getStorage('modal')->loadMultiple();
+
+  foreach ($modals as $modal) {
+
+    // Set Display Title as TRUE by default.
+    $modal->setDisplayTitle(TRUE);
+
+    // Set Display Button X as TRUE by default.
+    $modal->setDisplayButtonXclose(TRUE);
+
+    // Modal Save.
+    $modal->save();
+  }
+}
+
+/**
+ * Adds a new settings item with default value.
+ */
+function modal_page_update_40007() {
+
+  $config = \Drupal::configFactory()->getEditable('modal_page.settings');
+
+  // Set load_bootstrap_cdn as TRUE by default.
+  $config->set('load_bootstrap_cdn', TRUE);
+
+  // Save.
+  $config->save();
+
+  // If do you have option to don't load, so set the new item as FALSE.
+  $dontLoadModalPageExternalJs = $config->get('no_modal_page_external_js');
+
+  if (!empty($dontLoadModalPageExternalJs)) {
+    $config->set('load_bootstrap_cdn', FALSE);
+    $config->save();
+  }
+}
+
+/**
+ * Adds a new settings item with default value.
+ */
+function modal_page_update_40008() {
+
+  $config = \Drupal::configFactory()->getEditable('modal_page.settings');
+
+  $loadBootstrap = $config->get('load_bootstrap_cdn');
+
+  $config->set('load_bootstrap', $loadBootstrap);
+
+  $config->clear('load_bootstrap_cdn');
+
+  $config->clear('no_modal_page_external_js');
+
+  $config->save();
+}
+
+/**
+ * Update the "Languages to Show" field baseed on the old "language" field.
+ */
+function modal_page_update_40009() {
+
+  // Load all Modals.
+  $modals = \Drupal::entityTypeManager()->getStorage('modal')->loadMultiple();
+
+  foreach ($modals as $modal) {
+
+    // If there is no language code, skip.
+    if (empty($modal->getlangcode())) {
+      continue;
+    }
+
+    // Get the Modal's language code.
+    $langCode = $modal->getlangcode();
+
+    // Get Languages to Show.
+    $languagesToShow = $modal->getLanguagesToShow();
+
+    // Include the new lang code.
+    $languagesToShow[$langCode] = $langCode;
+
+    // Store the new value.
+    $modal->setLanguagesToShow($languagesToShow);
+
+    // Modal Save.
+    $modal->save();
+  }
+
+}
+
+/**
+ * Update the performance settings with default value.
+ */
+function modal_page_update_400010() {
+
+  $config = \Drupal::configFactory()->getEditable('modal_page.settings');
+
+  $config->set('clear_caches_on_modal_save', 1);
+
+  $config->save();
+}
+
+/**
+ * Update the Top Right Label Button and Enable Right Button with Default Value.
+ */
+function modal_page_update_400011() {
+
+  $config = \Drupal::configFactory()->getEditable('modal_page.settings');
+
+  $config->set('clear_caches_on_modal_save', 1);
+
+  $config->save();
+
+  // Load all Modals.
+  $modals = \Drupal::entityTypeManager()->getStorage('modal')->loadMultiple();
+
+  foreach ($modals as $modal) {
+
+    // Set Enable Right Button.
+    $modal->setEnableRightButton(TRUE);
+
+    // Store the new value.
+    $modal->setTopRightButtonLabel('x');
+
+    // Modal Save.
+    $modal->save();
+  }
+}
+
+// -----------------------------------------------------------------------------
+// Auxiliar Methods. @codingStandardsIgnoreLine
+// -----------------------------------------------------------------------------
+
+/**
+ * Create the field published.
+ */
+function create_storage_published() {
+  $field_storage_definition = BaseFieldDefinition::create('boolean')
+    ->setLabel(t("Published"))
+    ->setDefaultValue(TRUE)
+    ->setDisplayConfigurable('form', TRUE)
+    ->setDisplayOptions('form', [
+      'type' => 'boolean_checkbox',
+      'settings' => [
+        'display_label' => TRUE,
+      ],
+      'weight' => -5,
+    ]);
+
+  \Drupal::entityDefinitionUpdateManager()
+    ->installFieldStorageDefinition('published', 'modal_page_modal', 'modal_page_modal', $field_storage_definition);
+}
+
+/**
+ * Set field published.
+ */
+function populate_published_field() {
+  $modals = \Drupal::entityTypeManager()->getStorage('modal_page_modal')->loadMultiple();
+
+  foreach ($modals as $modal) {
+
+    $modal->published->setValue(TRUE);
+    if ($modal->type->value == 'page' && empty(trim($modal->pages->value))) {
+      $modal->published->setValue(FALSE);
+    }
+
+    if ($modal->type->value == 'parameter' && empty(trim($modal->paramenters->value))) {
+      $modal->published->setValue(FALSE);
+    }
+
+    $modal->save();
+  }
+}
+
+/**
+ * Update views settings.
+ */
+function update_modal_page_views() {
+  if (empty(\Drupal::moduleHandler()->moduleExists('views'))) {
+    return FALSE;
+  }
+
+  $config_views_path = drupal_get_path('module', 'modal_page') . '/config/optional/views.view.list_modal.yml';
+
+  $data = Yaml::decode(file_get_contents($config_views_path));
+
+  \Drupal::configFactory()->getEditable('views.view.list_modal')->setData($data)->save(TRUE);
+
+  \Drupal::service('cache.render')->invalidateAll();
+}
+
+/**
+ * Create field to open modal by element click.
+ */
+function update_entity_field_element_click() {
+  $field_storage_definition = BaseFieldDefinition::create('string')
+    ->setLabel(t('Open this modal clicking on this element'))
+    ->setDescription(t('Example: <b>.open-modal-welcome</b>'))
+    ->setRequired(FALSE)
+    ->setSettings([
+      'max_length' => 255,
+      'text_processing' => 0,
+    ])
+    ->setDefaultValue(NULL)
+    ->setDisplayOptions('view', [
+      'label' => 'above',
+      'type' => 'string',
+      'weight' => -5,
+    ])
+    ->setDisplayOptions('form', [
+      'type' => 'string_textfield',
+      'weight' => -5,
+    ])
+    ->setDisplayConfigurable('form', TRUE)
+    ->setDisplayConfigurable('view', TRUE);
+
+  \Drupal::entityDefinitionUpdateManager()->installFieldStorageDefinition('open_modal_on_element_click', 'modal_page_modal', 'modal_page_modal', $field_storage_definition);
+}
+
+/**
+ * Update Modal Page Table.
+ */
+function modal_page_update_modal_table(array $fields) {
+
+  if (empty(\Drupal::service('database')->schema()->tableExists('modal'))) {
+    return FALSE;
+  }
+
+  $database = \Drupal::service('database');
+  $database->update('modal')->fields($fields)->execute();
+
+  return TRUE;
+}
