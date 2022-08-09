@@ -35,8 +35,17 @@ class EmployeeForm extends FormBase
       '#title' => 'Name',
       '#default_value' => '',
       '#required' => true,
-      '#attributes'=> array(
-        'placeholder'=>"Name"
+      '#attributes' => array(
+        'placeholder' => "Name"
+      )
+    );
+    $form['mobile'] = array(
+      '#type' => 'textfield',
+      '#title' => 'Mobile',
+      '#default_value' => '',
+      '#required' => true,
+      '#attributes' => array(
+        'placeholder' => 'Mobile'
       )
     );
 
@@ -52,8 +61,8 @@ class EmployeeForm extends FormBase
       '#title' => 'About Employee',
       '#default_value' => '',
       '#required' => true,
-      '#attributes'=>array(
-        'placeholder'=>'About Employee'
+      '#attributes' => array(
+        'placeholder' => 'About Employee'
       )
     );
 
@@ -83,24 +92,21 @@ class EmployeeForm extends FormBase
     return $form;
   }
 
- /**
-  * {@inheritdoc}
- */
+  /**
+   * {@inheritdoc}
+   */
 
   public function validateForm(array &$form, FormStateInterface $form_state)
   {
-    $name=$form_state->getValue('name');
-    if(trim($name)=='')
-    {
-    $form_state->setErrorByName('name',$this->t('Name Field is Required'));
-    }
-    else if($form_state->getValue('gender')=='0')
-    {
-      $form_state->setErrorByName('gender',$this->t("Gender Field is Required"));
-    }
-    else if($form_state->getValue('about_employee')=='')
-    {
-      $form_state->setErrorByName('about_employee',$this->t("About Employee Field is Required"));
+    $name = $form_state->getValue('name');
+    if (trim($name) == '') {
+      $form_state->setErrorByName('name', $this->t('Name Field is Required'));
+    } else if ($form_state->getValue('mobile') == '') {
+      $form_state->setErrorByname('mobile', $this->t("Mobile Field is required"));
+    } else if ($form_state->getValue('gender') == '0') {
+      $form_state->setErrorByName('gender', $this->t("Gender Field is Required"));
+    } else if ($form_state->getValue('about_employee') == '') {
+      $form_state->setErrorByName('about_employee', $this->t("About Employee Field is Required"));
     }
   }
 
@@ -111,13 +117,13 @@ class EmployeeForm extends FormBase
 
   public function submitForm(array &$form, FormStateInterface $form_state)
   {
-     $postData = $form_state->getValues();
+    $postData = $form_state->getValues();
     // echo "<pre>";
     // print_r($postData);
     // echo "</pre>";
     // exit;
-    unset($postData['save'],$postData['form_build_id'],$postData['form_token'],$postData['form_id'],$postData['op']);
-    $query= \Drupal::database();
+    unset($postData['save'], $postData['form_build_id'], $postData['form_token'], $postData['form_id'], $postData['op']);
+    $query = \Drupal::database();
     $query->insert('employees')->fields($postData)->execute();
 
     //drupal_set_message(t('Employee data saved successfully'),'status',TRUE);

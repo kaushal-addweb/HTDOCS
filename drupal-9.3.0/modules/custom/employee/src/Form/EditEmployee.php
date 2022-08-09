@@ -26,7 +26,7 @@ class EditEmployee extends FormBase
     $id=\Drupal::routeMatch()->getParameter('id');
     $query=\Drupal::database();
     $data=$query->select('employees','e')
-          ->fields('e',['id','name','gender','about_employee'])
+          ->fields('e',['id','mobile','name','gender','about_employee'])
           ->condition('e.id',$id,'=')
           ->execute()->fetchAll(\PDO::FETCH_OBJ);
     //print_r($data);
@@ -45,6 +45,16 @@ class EditEmployee extends FormBase
       '#required' => true,
       '#attributes'=> array(
         'placeholder'=>"Name"
+      )
+    );
+
+    $form['mobile'] = array(
+      '#type' => 'textfield',
+      '#title' => 'Mobile',
+      '#default_value' => $data[0]->mobile,
+      '#required' => true,
+      '#attributes' => array(
+        'placeholder' => "Mobile"
       )
     );
 
@@ -85,6 +95,10 @@ class EditEmployee extends FormBase
     if(trim($name)=='')
     {
     $form_state->setErrorByName('name',$this->t('Name Field is Required'));
+    }
+    else if($form_state->getValue('mobile')=='0')
+    {
+      $form_state->setErrorByName('mobile',$this->t("Mobile Field is Required"));
     }
     else if($form_state->getValue('gender')=='0')
     {

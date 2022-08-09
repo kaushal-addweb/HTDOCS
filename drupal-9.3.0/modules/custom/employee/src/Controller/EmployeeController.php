@@ -26,7 +26,7 @@ class EmployeeController extends ControllerBase{
     $limit=2;
     $query= \Drupal::database();
     $result=$query->select('employees','e')
-    ->fields('e',['id','name','gender','about_employee'])
+    ->fields('e',['id','name','mobile','gender','about_employee'])
     ->extend('Drupal\Core\Database\Query\PagerSelectExtender')->limit($limit)
     ->execute()->fetchAll(\PDO::FETCH_OBJ);
 
@@ -48,6 +48,7 @@ class EmployeeController extends ControllerBase{
       $data[]=[
         'serial_no'=>$count.".",
         'name'=>$row->name,
+        'mobile'=>$row->mobile,
         'gender'=>$row->gender,
         'about_employee'=>$row->about_employee,
         'edit'=>t("<a href='edit-employee/$row->id'>Edit</a>"),
@@ -55,7 +56,7 @@ class EmployeeController extends ControllerBase{
       ];
       $count++;
     }
-      $header=array('S.No.','Name','Gender','About Employee','Edit','Delete');
+      $header=array('S.No.','Name','Mobile','Gender','About Employee','Edit','Delete');
       $a=t("<a href='create-Employee'>Add Employee</a>");
       echo $a;
       $build['table']=[
